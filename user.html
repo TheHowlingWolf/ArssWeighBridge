@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ArssGroup Weigh Bridge</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+</head>
+<body>
+
+<section class="site_header">
+    <div class="container d-flex h-100">
+        <div class="row justify-content-center align-items-center w-100">
+            <div class="col align-self-center">
+                <span class="Site_name_header float-left text-warning font-weight-bold pt-4">SiteName</span>
+                <button class="logout float-right btn btn-md btn-outline-warning btn-danger text-light mt-3 mx-2">Logout</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="initials">
+    <div class="container w-100 text-center">
+        <div class="row justify-content-center align-items-center w-100">
+            <div class="col align-self-center">
+                <div class="row justify-content-center fixed-bottom"> 
+                    <div class="col align-self-center">
+                        <p class="text-light"> Powered By <a href="#" style="text-decoration: none;"><b class="text-danger">Codepth</b></a> All Rights Reserved. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<script>
+    // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBRIP7TFvlQ_KhsFPw8j_jVDhcPAExkmjg",
+    authDomain: "arssgroup-c6ea6.firebaseapp.com",
+    databaseURL: "https://arssgroup-c6ea6.firebaseio.com",
+    projectId: "arssgroup-c6ea6",
+    storageBucket: "arssgroup-c6ea6.appspot.com",
+    messagingSenderId: "93458186970",
+    appId: "1:93458186970:web:9c81bbb3d346e15a3a1be3",
+    measurementId: "G-JPYZNKKY0X"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  //make auth and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  /* //update firestore settings
+  db.settings({timestampsInSnapshots:true}); */
+
+</script>
+<script src="./index.js"></script>
+<script src="./auth.js"></script>
+</body>
+</html>
+</body>
+</html>
