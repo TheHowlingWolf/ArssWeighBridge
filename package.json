@@ -4,16 +4,17 @@
   "description": "",
   "main": "bootstrap.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "check": "electron-rebuild"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^7.1.7"
+    "electron": "^7.1.7",
+    "electron-rebuild": "^1.8.8"
   },
   "dependencies": {
-    "electron-rebuild": "^1.8.8",
     "path": "^0.12.7",
     "serialport": "^8.0.6",
     "url": "^0.11.0"

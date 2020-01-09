@@ -1,7 +1,7 @@
 
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
-const portName = process.argv[2];
+const portName = "COM3";
 const port = new SerialPort(portName, { 
     baudRate: 9600
 })
