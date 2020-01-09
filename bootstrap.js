@@ -9,7 +9,10 @@ let win;
 function createWindow() {
     win = new BrowserWindow({
         height:800,
-        width:1000
+        width:1000,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
 
     win.loadURL(url.format({

@@ -23,13 +23,61 @@
     <div class="container d-flex h-100">
         <div class="row justify-content-center align-items-center w-100">
             <div class="col align-self-center">
-                <span class="Site_name_header float-left text-warning font-weight-bold pt-4">SiteName</span>
-                <button class="logout float-right btn btn-md btn-outline-warning btn-danger text-light mt-3 mx-2">Logout</button>
+                <span class="Site_name_header h2 float-left text-warning font-weight-bold pt-4"><i class="text-warning fas fa-map-marker-alt p-2"></i>Khorda</span>
+                <a href="#" class="logout float-right btn btn-lg btn-outline-warning btn-danger text-light mt-4 mx-2">Logout</a>
                 </span>
             </div>
         </div>
     </div>
 </section>
+
+<section class="components mt-2" data-aos="fade-up">
+    <div class="container">
+        <div class="row justify-content-center align-items-center w-100">
+            <div class="col-6 align-self-center">
+                <div class="row justify-content-center align-items-center w-100 mt-5">
+                    <div class="col-12 user-com align-self-center m-2 bg-dark">
+                        <div class="row justify-content-center align-items-center w-100">
+                            <div class="col-6 align-self-center bg-warning h-100">
+                                <span class="text-dark"><i class="fas fa-file-alt fa-3x p-5"></i></span>
+                            </div>
+                            <div class="col-6 align-self-center bg-dark">
+                                <p class="font-weight-bold text-warning lead">Slips Generated</p>
+                                <h3 class="slip-gen">10</h3>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="col-12 user-com align-self-center m-2 bg-dark">
+                        <div class="row justify-content-center align-items-center w-100">
+                            <div class="col-6 align-self-center bg-warning h-100">
+                                <span class="text-dark"><i class="fas fa-map-marker-alt fa-3x p-5"></i></span>
+                            </div>
+                            <div class="col-6 align-self-center bg-dark">
+                                <p class="font-weight-bold text-warning lead">Slips Generated</p>
+                                <h3 class="slip-gen">10</h3>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="col-12 user-com align-self-center m-2 bg-dark ">
+                        <div class="row justify-content-center align-items-center w-100">
+                            <div class="col-6 align-self-center bg-warning h-100">
+                                <span class="text-dark"><i class="fas fa-file-alt fa-3x p-5"></i></span>
+                            </div>
+                            <div class="col-6 align-self-center">
+                                <p class="font-weight-bold text-warning lead">Slips Generated</p>
+                                <h3 class="slip-gen">10</h3>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        <div class="col-6 align-self-center">
+            <button class="logout float-right btn btn-lg btn-dark text-light mt-3 mx-2">Generate New Slip</button>
+        </div>
+    </div>
+    </div>
+
+</section>    
 
 <section class="initials">
     <div class="container w-100 text-center">
@@ -72,7 +120,22 @@
 
 </script>
 <script src="./index.js"></script>
-<script src="./auth.js"></script>
+<script src="./auth_out.js"></script>
+<script>
+    function myMap() {
+    var mapProp= {
+      center:new google.maps.LatLng(51.508742,-0.120850),
+      zoom:5,
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=aefaefaefaefa&callback=myMap"></script>
+    <script>
+        AOS.init();
+        </script>
+<script src="./serial.js"></script>
 </body>
 </html>
 </body>
