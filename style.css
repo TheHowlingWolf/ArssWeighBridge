@@ -50,3 +50,19 @@ a:hover{
     background-position: center;
     background-size: 30px 10px;
 }
+.slip{
+    height: 80vh;
+    border-top:2px solid ;
+    border-bottom:2px solid ;
+    border-left:2px solid; 
+    border-radius: 800px 50px 50px 800px;
+    background: #ffc107;
+    background-position: center;
+    background-size: 30px 10px;
+}
+.slip-head{
+    border-top:2px solid #ffc107;
+    border-bottom:2px solid #ffc107;
+    border-left:2px solid #ffc107; 
+    border-radius: 0px 900px 00px 0px;
+}

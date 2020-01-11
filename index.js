@@ -24,3 +24,8 @@ function home(){
     document.querySelector('.login-nav').style.borderBottom = '0px solid #ffc107';
     document.querySelector('.home-nav').style.borderBottom = '2px solid #ffc107';
 }
+function genSlip()
+{
+    document.querySelector('.components').classList.add('d-none');
+    document.querySelector('.slip').classList.remove('d-none');
+}

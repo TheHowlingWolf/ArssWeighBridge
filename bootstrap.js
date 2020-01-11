@@ -10,6 +10,8 @@ function createWindow() {
     win = new BrowserWindow({
         height:800,
         width:1000,
+        resizable:false,
+        darkTheme:true,
         webPreferences: {
             nodeIntegration: true
         }
@@ -20,7 +22,7 @@ function createWindow() {
         protocol:'file',
         slashes:true
     }));
-    win.openDevTools();
+    //win.openDevTools();
     win.on('closed',()=>{
         win = null;
     });
