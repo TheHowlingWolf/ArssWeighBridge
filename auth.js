@@ -62,3 +62,33 @@ Login.addEventListener('submit',(e)=>{
         document.querySelector('.lgerror').innerHTML = `OPPS! ${errorMessage}`;
     });
 });
+
+
+
+const adminLogin = document.querySelector('#admin-login-form');
+adminLogin.addEventListener('submit',(e)=>{
+    e.preventDefault();
+     
+    setTimeout((time)=>{ 
+        window.location.assign("admin.html");
+     },2000);
+    //get user info
+    // const lg_email = Login['login_email'].value;
+    // const lg_pass = Login['login_password'].value;
+
+    //  auth.signInWithEmailAndPassword(lg_email,lg_pass)
+    // .then((cred)=>{
+    //     document.querySelector('.login').classList.add('d-none');
+    //     document.querySelector('.con-log').classList.remove('d-none');
+    //     document.querySelector('.lgerror').innerHTML = '';
+    //     Login.reset();
+    // })
+    // .catch(function (error) {
+    //     var errorCode = error.code;
+    //     var errorMessage = error.message;
+
+    //     document.querySelector('.lgerror').innerHTML = `OPPS! ${errorMessage}`;
+    // });
+});
+
+

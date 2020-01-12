@@ -27,6 +27,8 @@
                     <h3 class="lead font-weight-normal">Weigh Scale Management System</h3>
                     <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2" onclick="login();">Login</button>
                     <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2" onclick="signup();">Signup</button>
+                    
+                    
                 </div>
             </div>
         </div>
@@ -155,6 +157,55 @@
             </div>
         </div>
     </section>
+
+    
+
+    <section class="adminLogin d-none">
+        <div class="container d-flex h-100 text-center">
+            <div class="row justify-content-center align-items-center w-100">
+                <div class="col align-self-center">
+                    <h1 class="display-4 font-weight-bold">ARSS Group Connect</h1>
+                    <hr class="bg-warning w-50">
+                    
+
+                        <div class="h1 text-warning">Admin Login</div>
+                        <p class="lead text-warning">Fill the form below</p>
+                        <p class="lgerror lead text-dark font-weight-bold mt-2 bg-warning text-center"></p>
+                        <form class="form" method="POST" id="admin-login-form">
+                            <div class="form-group">
+                                <div class="input-group input-group-lg">
+                                    <div class="container text-center">
+                                        <div class="row w-100">
+                                            <div class="col-2 w-100">
+                                                <span class="input-group-addon"><i class="far fa-id-badge fa-2x pt-2"></i></span>
+                                            </div>
+                                            <div class="col-10 w-100">
+                                                <input name="login_email" type="email" class="form-control rounded" id="login_email" placeholder="Username">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <div class="container text-center">
+                                            <div class="row w-100">
+                                                <div class="col-2 w-100">
+                                                    <span class="input-group-addon"><i class="fas fa-lock fa-2x pt-2"></i></span>
+                                                </div>
+                                                <div class="col-10 w-100">
+                                                    <input name="login_password" type="password" class="form-control rounded" id="login_password" placeholder="Password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="submit" class="login-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
+                        </form>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="initials">
         <div class="container d-flex h-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
@@ -169,6 +220,7 @@
                                     <a class="home-nav text-warning px-2" href="#" onclick="home()">Home</a>
                                     <a class="login-nav text-warning px-2" href="#" onclick="login()">Login</a>
                                     <a class="register-nav text-warning px-2" href="#" onclick="signup()">Register</a>
+                                    <a class="admin-nav text-warning px-2" href="#" onclick="AdminLogin()">Admin</a>
                                 </div>
                                 <div class="col-3">
                                 </div>

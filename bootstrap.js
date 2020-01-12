@@ -18,11 +18,11 @@ function createWindow() {
     });
 
     win.loadURL(url.format({
-        pathname: path.join(__dirname,'index.html'),
+        pathname: path.join(__dirname,'user.html'),
         protocol:'file',
         slashes:true
     }));
-    //win.openDevTools();
+    win.openDevTools();
     win.on('closed',()=>{
         win = null;
     });
