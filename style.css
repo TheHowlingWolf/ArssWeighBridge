@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Prata&display=swap');
 body{
-    background: #222326 !important;
+    background: #111113 !important;
     padding: 0;
     margin: 0;
     overflow-x: hidden;
@@ -14,9 +14,6 @@ body{
 .login{
     height: 90vh;
 }
-.adminLogin{
-    height: 90vh;
-}
 .Register{
     height: 90vh;
 }
@@ -27,7 +24,7 @@ body{
     height: 90vh;
 }
 .components{
-    height: 80vh;
+    height: 625px;
 }
 .lg-btn{
     border: 2px solid black;
@@ -36,6 +33,9 @@ body{
 .home-nav{
     border-bottom: 2px solid #ffc107;
 }
+.home-nav-dark{
+    border-bottom: 2px solid #ffc107 !important;
+}
 a:hover{
     text-decoration: none !important;
 }
@@ -43,7 +43,9 @@ a:hover{
     border:2px solid ;
     border-radius: 5px;
 }
-
+.col-style{
+    
+}
 .components{
     border-top:2px solid ;
     border-bottom:2px solid ;
@@ -51,17 +53,17 @@ a:hover{
     border-radius: 50px 800px 800px 50px;
     background: #ffc107;
     background-position: center;
-
+    
 }
 .slip{
-    height: 80vh;
-    border-top:2px solid ;
-    border-bottom:2px solid ;
-    border-left:2px solid; 
-    border-radius: 800px 50px 50px 800px;
+    height: 625px;
     background: #ffc107;
     background-position: center;
     background-size: 30px 10px;
+    border-top:2px solid #ffc107;
+    border-bottom:2px solid #ffc107;
+    border-right:2px solid #ffc107; 
+    border-radius: 900px 900px 0px 0px;
 }
 .slip-head{
     border-top:2px solid #ffc107;
@@ -69,3 +71,32 @@ a:hover{
     border-left:2px solid #ffc107; 
     border-radius: 0px 900px 00px 0px;
 }
+.details-site{
+    height: 645px;
+}
+.scrollable{
+    height: 645px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.scrollable-form{
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ffc107; 
+    border-radius: 10px;
+  }

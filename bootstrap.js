@@ -12,17 +12,20 @@ function createWindow() {
         width:1000,
         resizable:false,
         darkTheme:true,
+        transparent:true,
+        frame:false,
         webPreferences: {
             nodeIntegration: true
         }
     });
+    win.show();
 
     win.loadURL(url.format({
         pathname: path.join(__dirname,'user.html'),
         protocol:'file',
         slashes:true
     }));
-    win.openDevTools();
+    //win.openDevTools();
     win.on('closed',()=>{
         win = null;
     });
