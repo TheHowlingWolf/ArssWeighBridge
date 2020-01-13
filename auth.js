@@ -1,6 +1,4 @@
 
-
-
 //signup
 const site = document.getElementById('siteSignUp');
 site.addEventListener('submit', (e) => {
@@ -12,7 +10,7 @@ site.addEventListener('submit', (e) => {
     const email = site['email'].value;
     const password = site['password'].value;
     const devId = site['devId'].value;
-console.log(email);
+    console.log(email);
     //console.log(siteName+'\n'+devId+'\n'+password);
 
     //signup the user using firebase
@@ -31,7 +29,7 @@ console.log(email);
                     document.querySelector('.register-nav').style.borderBottom = '0px solid #ffc107';
                     document.querySelector('.home-nav').style.borderBottom = '0px solid #ffc107';
                     document.querySelector('.login-nav').style.borderBottom = '2px solid #ffc107';
-                    db.collection.('admin').collection('UserProfile').add({
+                    db.collection('UserProfile').add({
                         uid: cred.user.uid,
                         siteName: siteName,
                         deviceId: devId
@@ -63,7 +61,11 @@ Login.addEventListener('submit', (e) => {
             document.querySelector('.lgerror').innerHTML = '';
             Login.reset();
             setTimeout((time) => {
-                window.location.assign("user.html");
+                auth.onAuthStateChanged(function (user) {
+                    if (user) {
+                        window.location.assign('user.html');
+                    }
+                })
             }, 2000);
         })
         .catch(function (error) {

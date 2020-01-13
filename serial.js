@@ -20,19 +20,22 @@ const port = new SerialPort(portName, {
 
 const parser = new Readline("\r\n");
 port.pipe(parser);
-var x,time_x;
-var y,time_;
-var z,time_;
+var x;
+var y;
+var z;
 var temp;
+
+var dryTime,loadedTime,grossTime;
+
 port.on("open", line => console.log("Open Connection"));
 
 parser.on("data", line => (temp = line));
 function dryFetch() {
+  dryTime= new Date().toString();  
   document.querySelector(".df-btn").classList.add("d-none");
   document.querySelector(".df-val").classList.remove("d-none");
   x = Number(temp);
-  time_x= new Date().toString();
-  document.querySelector(".df-val").innerHTML = `${x} Kgs<p class="h6 font-weight-normal text-muted">Time:${time_x}</p>`;
+  document.querySelector(".df-val").innerHTML = `${x} Kgs<p class="h6 font-weight-normal text-muted">Time:${dryTime}</p>`;
 
   if (x === undefined) {
     setTimeout(() => {
@@ -48,11 +51,12 @@ function dryFetch() {
   }
 }
 function loadedFetch() {
+  loadedTime= new Date().toString();
   document.querySelector(".lf-btn").classList.add("d-none");
   document.querySelector(".lf-val").classList.remove("d-none");
   y = Number(temp);
   time_y= new Date().toString();
-  document.querySelector(".lf-val").innerHTML = `${y} Kgs<p class="h6 font-weight-normal text-muted">Time:${time_y}</p>`;
+  document.querySelector(".lf-val").innerHTML = `${y} Kgs<p class="h6 font-weight-normal text-muted">Time:${loadedTime}</p>`;
   if (y === undefined) {
     setTimeout(() => {
       document.querySelector(
@@ -68,11 +72,12 @@ function loadedFetch() {
 }
 
 async function grossFetch() {
+  grossTime = new Date().toString();  
   z = y - x;
   document.querySelector(".gf-btn").classList.add("d-none");
   document.querySelector(".gf-val").classList.remove("d-none");
   time_z= new Date().toString();
-  document.querySelector(".gf-val").innerHTML = `${z} Kgs <p class="h6 font-weight-normal text-muted">Time:${time_z}</p>`;
+  document.querySelector(".gf-val").innerHTML = `${z} Kgs <p class="h6 font-weight-normal text-muted">Time:${grossTime}</p>`;
   if (z === undefined) {
     setTimeout(() => {
       document.querySelector(
@@ -80,7 +85,37 @@ async function grossFetch() {
       ).innerHTML = `Error Getting Weight Please Reset`;
     }, 1000);
   }
+    
+    var cname = document.getElementById('c_name').value;
+    var mname = document.getElementById('m_name').value;
+    var vname = document.getElementById('v_name').value;
+    var sname = document.getElementById('s_name').value;
+console.log(x);
+    if( cname !== "" && vname!==""  )
+    {
+        var userData= {
+            "Customer Name" : cname,
+            "Vehicle Number": vname,
+            "Material" : mname,
+            "Supplier" : sname,
+            "Tire Weight": x,
+            "Tire Weight Time" : dryTime,
+            "Loaded Weight" : y,
+            "Loading Time" : loadedTime,
+            "Gross Weight" : z,
+            "Gross Weight Time" : grossTime
+        }
+        console.log(userData);
+        db.collection('users').doc(docRef.id).collection('Ticket').add(userData);
+    }
+    else{
+        document.getElementById('form-cau').classList.remove('d-none');
+    }
 
+
+}
+
+/*
   var transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -90,7 +125,7 @@ async function grossFetch() {
       pass: "rahul_123."
     }
   });
-
+ 
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: "ARSS group<ARSS@gmail.com>", // sender address
@@ -147,8 +182,10 @@ async function grossFetch() {
   //     })
   //   );
   //   req.end();
-}
-function reset_slip() {
+} */
+document.getElementById('reset').addEventListener('click',(e)=>{
+
+  e.preventDefault();
   x = undefined;
   y = undefined;
   z = undefined;
@@ -163,7 +200,11 @@ function reset_slip() {
   document.querySelector(".gf-btn").classList.remove("d-none");
   document.querySelector(".gf-val").classList.add("d-none");
   document.querySelector(".gf-val").innerHTML = `${z} Kgs`;
-}
+
+document.getElementById('c_name').value = "";
+document.getElementById('v_name').value = "";
+
+})
 
 port.write("ROBOT POWER ON\n");
 //> ROBOT ONLINE

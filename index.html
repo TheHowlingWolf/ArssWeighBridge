@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ArssGroup Weigh Bridge</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></head>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+</head>
+
 <body>
     <section class="buttons my-2">
         <div class="container-fluid m-0">
@@ -26,12 +37,14 @@
                 </div>
                 <div class="col-6 text-right w-100">
                     <span class="pl-5">
-                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0" onclick="winmin()"><i class="fas fa-window-minimize p-1"></i></button>
-                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0" onclick="winclose()"><i class="fas fa-times-circle p-1"></i></button>
-                    </span> 
+                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0"
+                            onclick="winmin()"><i class="fas fa-window-minimize p-1"></i></button>
+                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0"
+                            onclick="winclose()"><i class="fas fa-times-circle p-1"></i></button>
+                    </span>
                 </div>
             </div>
-        </div>   
+        </div>
     </section>
 
     <section class="intro ">
@@ -41,8 +54,10 @@
                     <img src="./scale.png" alt="" srcset="" width="25%">
                     <h1 class="display-4 font-weight-bold"> Welcome to ARSS Group</h1>
                     <h3 class="lead font-weight-normal">Weigh Scale Management System</h3>
-                    <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2" onclick="login();">Login</button>
-                    <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2" onclick="signup();">Signup</button>
+                    <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2"
+                        onclick="login();">Login</button>
+                    <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2"
+                        onclick="signup();">Signup</button>
                 </div>
             </div>
         </div>
@@ -51,42 +66,49 @@
         <div class="container d-flex h-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col align-self-center">
-                        <h1 class="display-4 font-weight-bold">ARSS Group Connect</h1>
-                        <div class="h1 text-warning">Login</div>
-                        <p class="lead text-warning">Fill the form below</p>
-                        <p class="lgerror lead text-dark font-weight-bold mt-2 bg-warning text-center"></p>
-                        <form class="form" method="POST" id="login-form">
+                    <h1 class="display-4 font-weight-bold">ARSS Group Connect</h1>
+                    <div class="h1 text-warning">Login</div>
+                    <p class="lead text-warning">Fill the form below</p>
+                    <p class="lgerror lead text-dark font-weight-bold mt-2 bg-warning text-center"></p>
+                    <form class="form" method="POST" id="login-form">
+                        <div class="form-group">
+                            <div class="input-group input-group-lg">
+                                <div class="container text-center">
+                                    <div class="row w-100">
+                                        <div class="col-2 w-100">
+                                            <span class="input-group-addon"><i
+                                                    class="far fa-id-badge fa-2x pt-2"></i></span>
+                                        </div>
+                                        <div class="col-10 w-100">
+                                            <input name="login_email" type="email" class="form-control rounded"
+                                                id="login_email" placeholder="Username">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="input-group input-group-lg">
                                     <div class="container text-center">
                                         <div class="row w-100">
                                             <div class="col-2 w-100">
-                                                <span class="input-group-addon"><i class="far fa-id-badge fa-2x pt-2"></i></span>
+                                                <span class="input-group-addon"><i
+                                                        class="fas fa-lock fa-2x pt-2"></i></span>
                                             </div>
                                             <div class="col-10 w-100">
-                                                <input name="login_email" type="email" class="form-control rounded" id="login_email" placeholder="Username">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group input-group-lg">
-                                        <div class="container text-center">
-                                            <div class="row w-100">
-                                                <div class="col-2 w-100">
-                                                    <span class="input-group-addon"><i class="fas fa-lock fa-2x pt-2"></i></span>
-                                                </div>
-                                                <div class="col-10 w-100">
-                                                    <input name="login_password" type="password" class="form-control rounded" id="login_password" placeholder="Password">
-                                                </div>
+                                                <input name="login_password" type="password"
+                                                    class="form-control rounded" id="login_password"
+                                                    placeholder="Password">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" class="login-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
-                            <p class="text-light mt-2"> New Site? <a href="#" class="text-warning" style="text-decoration: none;" onclick="signup();">Register Here!</a></p>
-                        </form>
+                        </div>
+                        <input type="submit"
+                            class="login-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
+                        <p class="text-light mt-2"> New Site? <a href="#" class="text-warning"
+                                style="text-decoration: none;" onclick="signup();">Register Here!</a></p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -95,20 +117,37 @@
         <div class="container d-flex h-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col align-self-center">
-                        <h1 class="display-4 font-weight-bold">ARSS Group Connect</h1>
-                        <div class="h1 text-warning">Register Here</div>
-                        <p class="lead text-warning">Fill the form below</p>
-                        <p class="error lead text-dark font-weight-bold mt-2 bg-warning text-center"></p>
-                        <form class="form" id="siteSignUp" method="POST">
+                    <h1 class="display-4 font-weight-bold">ARSS Group Connect</h1>
+                    <div class="h1 text-warning">Register Here</div>
+                    <p class="lead text-warning">Fill the form below</p>
+                    <p class="error lead text-dark font-weight-bold mt-2 bg-warning text-center"></p>
+                    <form class="form" id="siteSignUp" method="POST">
+                        <div class="form-group">
+                            <div class="input-group input-group-lg">
+                                <div class="container text-center">
+                                    <div class="row w-100">
+                                        <div class="col-2 w-100">
+                                            <span class="input-group-addon"><i
+                                                    class="far fa-id-badge fa-2x pt-2"></i></span>
+                                        </div>
+                                        <div class="col-10 w-100">
+                                            <input name="sitename" type="name" class="form-control rounded"
+                                                id="sitename" placeholder="Site Name in Caps">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="input-group input-group-lg">
                                     <div class="container text-center">
                                         <div class="row w-100">
                                             <div class="col-2 w-100">
-                                                <span class="input-group-addon"><i class="far fa-id-badge fa-2x pt-2"></i></span>
+                                                <span class="input-group-addon"><i
+                                                        class="far fa-mail fa-2x pt-2"></i></span>
                                             </div>
                                             <div class="col-10 w-100">
-                                                <input name="sitename" type="name" class="form-control rounded" id="sitename" placeholder="Site Name in Caps">
+                                                <input name="email" type="email" class="form-control rounded" id="email"
+                                                    placeholder="Email ID">
                                             </div>
                                         </div>
                                     </div>
@@ -118,23 +157,12 @@
                                         <div class="container text-center">
                                             <div class="row w-100">
                                                 <div class="col-2 w-100">
-                                                    <span class="input-group-addon"><i class="far fa-mail fa-2x pt-2"></i></span>
+                                                    <span class="input-group-addon"><i
+                                                            class="fas fa-lock fa-2x pt-2"></i></span>
                                                 </div>
                                                 <div class="col-10 w-100">
-                                                    <input name="email" type="email" class="form-control rounded" id="email" placeholder="Email ID">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <div class="form-group">
-                                    <div class="input-group input-group-lg">
-                                        <div class="container text-center">
-                                            <div class="row w-100">
-                                                <div class="col-2 w-100">
-                                                    <span class="input-group-addon"><i class="fas fa-lock fa-2x pt-2"></i></span>
-                                                </div>
-                                                <div class="col-10 w-100">
-                                                    <input name="password" type="password" class="form-control rounded" id="password" placeholder="Password">
+                                                    <input name="password" type="password" class="form-control rounded"
+                                                        id="password" placeholder="Password">
                                                 </div>
                                             </div>
                                         </div>
@@ -145,19 +173,23 @@
                                         <div class="container text-center">
                                             <div class="row w-100">
                                                 <div class="col-2 w-100">
-                                                    <span class="input-group-addon"><i class="fas fa-lock fa-2x pt-2"></i></span>
+                                                    <span class="input-group-addon"><i
+                                                            class="fas fa-lock fa-2x pt-2"></i></span>
                                                 </div>
                                                 <div class="col-10 w-100">
-                                                    <input name="devId" type="number" class="form-control rounded" id="devId" placeholder="Device ID">
+                                                    <input name="devId" type="number" class="form-control rounded"
+                                                        id="devId" placeholder="Device ID">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" class="reg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
-                            <p class="text-light mt-2"> Go to <a class="text-warning" href="#" style="text-decoration: none;" onclick="login();"> Site Login</a></p>
-                        </form>
+                            <input type="submit"
+                                class="reg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
+                            <p class="text-light mt-2"> Go to <a class="text-warning" href="#"
+                                    style="text-decoration: none;" onclick="login();"> Site Login</a></p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -169,7 +201,7 @@
                     <img src="./check.png" alt="" srcset="" width="25%">
                     <h1 class="display-4 font-weight-bold"> Registered!</h1>
                     <h3 class="lead font-weight-normal">And Expanding.....</h3>
-                 </div>
+                </div>
             </div>
         </div>
     </section>
@@ -180,7 +212,7 @@
                     <img src="./happy.png" alt="" srcset="" width="25%">
                     <h1 class="display-4 font-weight-bold"> Welcome !</h1>
                     <h3 class="lead text-warning font-weight-normal">Arssgroup</h3>
-                 </div>
+                </div>
             </div>
         </div>
     </section>
@@ -188,11 +220,11 @@
         <div class="container d-flex h-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col align-self-center">
-                    <div class="row justify-content-center fixed-bottom"> 
+                    <div class="row justify-content-center fixed-bottom">
                         <div class="col align-self-center">
                             <div class="row my-3">
                                 <div class="col-3">
-                                    
+
                                 </div>
                                 <div class="col-6">
                                     <a class="home-nav text-warning px-2" href="#" onclick="home()">Home</a>
@@ -202,7 +234,8 @@
                                 <div class="col-3">
                                 </div>
                             </div>
-                            <p class="text-light"> Powered By <a href="#" style="text-decoration: none;"><b class="text-danger">Codepth</b></a> All Rights Reserved. </p>
+                            <p class="text-light"> Powered By <a href="#" style="text-decoration: none;"><b
+                                        class="text-danger">Codepth</b></a> All Rights Reserved. </p>
                         </div>
                     </div>
                 </div>
@@ -213,34 +246,19 @@
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-    apiKey: "AIzaSyB90PGV9326qkOdNaIhPrtRX_mb_af-X0s",
-    authDomain: "arss-fec99.firebaseapp.com",
-    databaseURL: "https://arss-fec99.firebaseio.com",
-    projectId: "arss-fec99",
-    storageBucket: "arss-fec99.appspot.com",
-    messagingSenderId: "404467571719",
-    appId: "1:404467571719:web:d95da53f1b17f32b209ea2",
-    measurementId: "G-P8650EFV88"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+    <script src="./firebase.js"></script>
+    <!-- // Your web app's Firebase configuration
 
-  //make auth and firestore references
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-  /* //update firestore settings
-  db.settings({timestampsInSnapshots:true}); */
+        /* //update firestore settings
+        db.settings({timestampsInSnapshots:true}); */
 
-</script>
-<script src="./index.js"></script>
-<script src="./auth.js"></script>
-<script src="./serial.js"></script>
-<script>
-    AOS.init();
+    </script> -->
+    <script src="./index.js"></script>
+    <script src="./auth.js"></script>
+    <script src="./serial.js"></script>
+    <script>
+        AOS.init();
     </script>
 </body>
+
 </html>

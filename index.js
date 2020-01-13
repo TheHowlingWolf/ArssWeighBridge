@@ -1,6 +1,6 @@
 
 
-function login(){
+function login() {
     document.querySelector('.login').classList.remove('d-none');
     document.querySelector('.intro').classList.add('d-none');
     document.querySelector('.Register').classList.add('d-none');
@@ -9,7 +9,7 @@ function login(){
     document.querySelector('.login-nav').style.borderBottom = '2px solid #ffc107';
     document.querySelector('.lgerror').innerHTML = '';
 }
-function signup(){
+function signup() {
     document.querySelector('.intro').classList.add('d-none');
     document.querySelector('.login').classList.add('d-none');
     document.querySelector('.Register').classList.remove('d-none');
@@ -18,7 +18,7 @@ function signup(){
     document.querySelector('.home-nav').style.borderBottom = '0px solid #ffc107';
     document.querySelector('.error').innerHTML = '';
 }
-function home(){
+function home() {
     document.querySelector('.login').classList.add('d-none');
     document.querySelector('.intro').classList.remove('d-none');
     document.querySelector('.Register').classList.add('d-none');
@@ -26,8 +26,17 @@ function home(){
     document.querySelector('.login-nav').style.borderBottom = '0px solid #ffc107';
     document.querySelector('.home-nav').style.borderBottom = '2px solid #ffc107';
 }
-function genSlip()
-{
+function genSlip() {
     document.querySelector('.components').classList.add('d-none');
     document.querySelector('.slip').classList.remove('d-none');
 }
+
+auth.onAuthStateChanged((user) => {
+    console.log(user);
+    db.collection('UserProfile').where('uid', '==', user.uid).get().then((snapshot) => {
+        console.log(  snapshot.docs[0].data().siteName);
+        document.querySelector('#site-name').innerHTML = snapshot.docs[0].data().siteName;
+    })
+
+
+})
