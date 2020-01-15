@@ -193,6 +193,8 @@ function adminback() {
 const searchBar = document.getElementById('search-ticket');
 searchBar.addEventListener('submit', (e) => {
   e.preventDefault();
+  document.getElementById('tableBack').classList.add('d-none');
+  document.getElementById('searchBack').classList.remove('d-none');
   var searchItem = searchBar['searchTicket'].value;
   console.log(searchItem)
   document.getElementById('site-details').innerHTML = "";
@@ -230,3 +232,9 @@ searchBar.addEventListener('submit', (e) => {
     })
 
 })
+
+function SearchBack(){
+  document.getElementById('tableBack').classList.remove('d-none');
+  document.getElementById('searchBack').classList.add('d-none');
+  moreDetails(siteChose);
+}
