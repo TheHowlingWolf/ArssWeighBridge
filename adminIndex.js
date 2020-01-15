@@ -25,10 +25,6 @@ function moreDetails(siteObj) {
             <td>${datas.Gross_Weight}</td>
             <td>${new Date(datas.Gross_Weight_Time).toLocaleTimeString()}</td>
             <td>${new Date(datas.Gross_Weight_Time).toLocaleDateString()}</td>
-            
-            
-            
-            
             </tr>
             `;
       });
