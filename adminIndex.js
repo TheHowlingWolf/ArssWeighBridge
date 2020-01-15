@@ -198,3 +198,53 @@ function adminback() {
   document.querySelector(".details-site").classList.remove("d-none");
   document.querySelector("#download-slips").classList.add("d-none");
 }
+
+
+const searchBar = document.getElementById('search-ticket');
+searchBar.addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.getElementById('tableBack').classList.add('d-none');
+  document.getElementById('searchBack').classList.remove('d-none');
+  var searchItem = searchBar['searchTicket'].value;
+  console.log(searchItem)
+  document.getElementById('site-details').innerHTML = "";
+  db.collection("users")
+    .doc(siteChose)
+    .collection("Ticket")
+    .where("Ticket_No", "==", Number(searchItem))
+    .get()
+    .then(snapshot => {
+      dataLength = snapshot.docs.length;
+      datas = snapshot.docs;
+      console.log(datas);
+      
+
+      if (dataLength > 0) {
+        document.getElementById('site-details').innerHTML = `
+          <tr>
+          <td >${datas[0].data().Ticket_No}</td>
+          <td >${datas[0].data().Customer_Name}</td>
+          <td > ${datas[0].data().Vehicle_Number}</td> 
+          <td > ${datas[0].data().Material}</td>
+          <td > ${datas[0].data().Supplier}</td>
+          <td > ${datas[0].data().Tire_Weight}</td>
+          <td>${datas[0].data().Loaded_Weight} </td>
+          <td>${datas[0].data().Gross_Weight}</td>
+          <td>${new Date(datas[0].data().Gross_Weight_Time).toLocaleTimeString()}</td>
+          <td>${new Date(datas[0].data().Gross_Weight_Time).toLocaleDateString()}</td>
+          
+          </tr>
+        `
+      }
+      else{
+        document.getElementById('site-details').innerHTML = '<tr> <td colspan="9"><b>  No Results Found </b> </td> </tr>';
+      }
+    })
+
+})
+
+function SearchBack(){
+  document.getElementById('tableBack').classList.remove('d-none');
+  document.getElementById('searchBack').classList.add('d-none');
+  moreDetails(siteChose);
+}
