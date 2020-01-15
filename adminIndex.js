@@ -205,7 +205,7 @@ searchBar.addEventListener('submit', (e) => {
       dataLength = snapshot.docs.length;
       datas = snapshot.docs;
       console.log(datas);
-      console.log(datas[0].data());
+      
 
       if (dataLength > 0) {
         document.getElementById('site-details').innerHTML = `
@@ -225,7 +225,7 @@ searchBar.addEventListener('submit', (e) => {
         `
       }
       else{
-        document.getElementById('site-details').innerHTML = 'No Results Found';
+        document.getElementById('site-details').innerHTML = '<tr> <td colspan="9"><b>  No Results Found </b> </td> </tr>';
       }
     })
 
