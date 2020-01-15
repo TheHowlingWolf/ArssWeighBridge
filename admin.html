@@ -92,7 +92,7 @@
                             <img src="./lock.png" alt="" srcset="" width="25%">
                         </div>
                         <div class="col-12">
-                            
+                            <p class="pass-error lead text-dark font-weight-bold mt-2 bg-warning text-center"></p>
                                 <input name="updatePass" type="text" class="form-control rounded w-50 mt-2 d-inline"
                                                 id="updatePass" placeholder="Enter New Password">
                         </div>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="col-12">
                             <input type="submit"
-                            class="login-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
+                            class="update-pass-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
                         </div>
                         <button id="close-btn" class="btn btn btn-transparent text-warning m-2 p-0"
                             onclick="setBack()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Settings Menu</button>
@@ -121,7 +121,7 @@
                             <img src="./defense.png" alt="" srcset="" width="25%">
                         </div>
                         <div class="col-12">
-                            
+                            <p class="auth-error lead text-dark font-weight-bold mt-2 bg-warning text-center"></p>
                                 <input name="updatePass" type="text" class="form-control rounded w-50 mt-2 d-inline"
                                                 id="authUpdatePass" placeholder="Enter New Authentication Password">
                         </div>
@@ -132,7 +132,7 @@
                         </div>
                         <div class="col-12">
                             <input type="submit"
-                            class="login-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
+                            class="update-auth-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
                         </div>
                         <button id="close-btn" class="btn btn btn-transparent text-warning m-2 p-0"
                             onclick="setBack()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Settings Menu</button>
@@ -271,6 +271,18 @@
 
     </section>
 
+    <section class="con-reg d-none">
+        <div class="container d-flex h-100 text-center">
+            <div class="row justify-content-center align-items-center w-100">
+                <div class="col align-self-center">
+                    <img src="./check.png" alt="" srcset="" width="25%">
+                    <h1 class="display-4 font-weight-bold"> Successfully Updated!</h1>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="initials">
         <div class="container w-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
@@ -295,6 +307,7 @@
 <script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
 <script src="./firebase.js"></script>
 <script src="./auth_out.js"></script>
+<script src="./auth.js"></script>
 <script src="./adminIndex.js"></script>
 <script src="./serial.js"></script>
 

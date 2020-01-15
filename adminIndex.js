@@ -31,6 +31,7 @@ function moreDetails(siteObj) {
       });
   }
   
+
   
   function back() {
     document.querySelector(".scrollable").classList.remove("d-none");
@@ -79,6 +80,8 @@ function moreDetails(siteObj) {
     document.querySelector(".settings-menu").classList.remove("d-none");
     document.querySelector(".settings-menu-updatepass").classList.add("d-none");
     document.querySelector(".settings-menu-updateauth").classList.add("d-none");
+    document.querySelector('.auth-error').innerHTML = '';
+    document.querySelector('.pass-error').innerHTML = '';
   }
   
   var sites = document.getElementById("sites");
@@ -285,3 +288,87 @@ function moreDetails(siteObj) {
     moreDetails(siteChose);
   }
   
+  document.querySelector('.update-auth-btn').addEventListener('click',(e)=>{
+    e.preventDefault();
+    
+    (async function updateAuthPass(){
+        var newAuthKey = document.getElementById('authUpdatePass').value;
+        var oldAuthKey = document.getElementById('authOldPass').value;
+        var adminKey;
+        await db.collection("ticketsCount").get().then((snapshot)=>{
+            adminKey=snapshot.docs[0].data().adminKey;   
+        });
+
+            if(adminKey === oldAuthKey && oldAuthKey !== newAuthKey && newAuthKey!= "" && oldAuthKey!=="")
+            {
+                await db.collection("ticketsCount").doc("8Wb4NtiBXO8coiKwRTW7")
+                .update({ adminKey: newAuthKey });
+
+                document.querySelector('.con-reg').classList.remove('d-none');
+                document.querySelector(".settings-menu-updateauth").classList.add("d-none");
+                setTimeout(()=>{
+                    document.querySelector('.con-reg').classList.add('d-none');
+                    document.querySelector(".settings-menu").classList.remove("d-none");
+                },2000);
+
+            }
+            else if ( adminKey !== oldAuthKey)
+            {
+                document.querySelector('.auth-error').innerHTML = `OPPS! Old Auth Key Doesn't Match`;
+            }
+            else if(oldAuthKey === newAuthKey )
+            {
+                document.querySelector('.auth-error').innerHTML = `OPPS! New And Old Keys Cannot Be Same`;
+            }
+            else
+            {
+                document.querySelector('.auth-error').innerHTML = `OPPS! Please Fill The Fields`;
+            }
+    })();
+    
+  });
+
+
+  document.querySelector('.update-pass-btn').addEventListener('click',(e)=>{
+    e.preventDefault();
+    
+    (async function updateAuthPass(){
+        var newPassKey = document.getElementById('updatePass').value;
+        var oldPassKey = document.getElementById('oldPass').value;
+        var adminKey;
+        
+        var user = auth.currentUser;
+        await user.reauthenticateWithCredential(user.email,oldPassKey).then(function() {
+            if(oldPassKey !== newPassKey && newPassKey!= "" && oldPassKey!=="")
+            {
+                user.updatePassword(newPassKey).then(()=>{
+                    document.querySelector('.con-reg').classList.remove('d-none');
+                    document.querySelector(".settings-menu-updatepass").classList.add("d-none");
+                    setTimeout(()=>{
+                        document.querySelector('.con-reg').classList.add('d-none');
+                        document.querySelector(".settings-menu").classList.remove("d-none");
+                    },2000);
+                })
+                .catch((error)=>{
+                    var errorMessage = error.message;
+                    document.querySelector('.pass-error').innerHTML = `OPPS! ${errorMessage}`;
+                });
+
+            }
+            else if(oldPassKey === newPassKey )
+            {
+                document.querySelector('.pass-error').innerHTML = `OPPS! New And Old Keys Cannot Be Same`;
+            }
+            else
+            {
+                document.querySelector('.pass-error').innerHTML = `OPPS! Please Fill The Fields`;
+            }
+          })
+          .catch(function(error) {
+            var errorMessage = error.message;
+            console.log(errorMessage);
+                    document.querySelector('.pass-error').textContent = `OPPS! ${errorMessage}`;
+          }); 
+    })();
+    
+  });
