@@ -61,6 +61,7 @@
 
 
     <section class="scrollable">
+        
         <div class="row  justify-content-center" id="sites">
 
         </div>
@@ -72,7 +73,8 @@
                 <div class="col-12 my-2 align-self-center">
                     <button class="btn px-4 mx-1 btn-warning border-danger" onclick="back()"> <b> Back</b></button>
 
-                    <button class="bg-dark mx-1  btn text-white border-warning" onclick="downloadPage()">Download Slips</button>
+                    <button class="bg-dark mx-1  btn text-white border-warning" onclick="downloadPage()">Download
+                        Slips</button>
 
                 </div>
             </div>
@@ -102,16 +104,15 @@
                 <table class=" table-por table bg-warning  text-center">
 
                     <thead>
+                        <th>Ticket No.</th>
                         <th>Customer Name</th>
-                        <th>Gross Weight</th>
-                        <th> Gross Weight Time</th>
-                        <th>Loaded Weight </th>
-                        <th> Loading Time</th>
+                        <th> Vehicle Number</th>
                         <th> Material</th>
                         <th> Supplier</th>
-                        <th> Tire Weight</th>
-                        <th> Tire Weight Time</th>
-                        <th> Vehicle Number</th>
+                        <th> Tyre Weight (kgs)</th>
+                        <th>Loaded Weight (kgs)</th>
+                        <th>Gross Weight (kgs)</th>
+                        <th> Gross Weight Time</th>
                         <th>Date</th>
                     </thead>
                     <tbody id="site-details">
@@ -129,8 +130,8 @@
 
     <section id="download-slips" class="d-none mt-5 pt-5">
         <div class="row justify-content-center">
-            <button id="close-btn" class="col-12 btn btn btn-transparent text-warning m-2 p-0"
-                            onclick="adminback()"><i class="fas fa-arrow-circle-left p-1"></i>Back </button>
+            <button id="close-btn" class="col-12 btn btn btn-transparent text-warning m-2 p-0" onclick="adminback()"><i
+                    class="fas fa-arrow-circle-left p-1"></i>Back </button>
             <form id="date-form" class="col-6 row justify-content-center">
                 <div class="form-group col-10">
                     <div class="input-group input-group-lg">
@@ -141,13 +142,13 @@
                                 </div>
                                 <div class="col-10 w-100">
                                     <input type="date" name="startDate" id="startDate" class="form-control rounded">
-                                  
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-10 " >
+                <div class="form-group col-10 ">
                     <div class="input-group input-group-lg">
                         <div class="container text-center">
                             <div class="row w-100">
@@ -156,20 +157,20 @@
                                 </div>
                                 <div class="col-10 w-100">
                                     <input type="date" name="endDate" id="endDate" class="form-control rounded">
-                                  
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-10 text-center">
-                    
-                    
+
+
                     <button
-                    class="text-center login-btn btn-lg btn  btn-outline-warning btn-danger text-light mt-3 mx-2">Download</button>
+                        class="text-center login-btn btn-lg btn  btn-outline-warning btn-danger text-light mt-3 mx-2">Download</button>
                 </div>
-                
+
 
 
             </form>

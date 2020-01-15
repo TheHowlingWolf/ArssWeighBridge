@@ -10,13 +10,14 @@ function createWindow() {
     win = new BrowserWindow({
         height:800,
         width:1000,
+        icon:'./logo.icns',
         resizable:false,
         darkTheme:true,
         transparent:true,
         frame:false,
         webPreferences: {
             nodeIntegration: true,
-            devTools:false
+            
         }
     });
     win.show();
@@ -31,7 +32,7 @@ function createWindow() {
         win = null;
     });
 
-    win.webContents.on("devtools-opened", () => { win.webContents.closeDevTools(); });
+    // win.webContents.on("devtools-opened", () => { win.webContents.closeDevTools(); });
 
 }
 

@@ -6,12 +6,11 @@ const nodemailer = require("nodemailer");
 const { remote } = require("electron");
 var win = remote.BrowserWindow.getFocusedWindow();
 
-
-function winclose(){
-    win.close();
+function winclose() {
+  win.close();
 }
-function winmin(){
-    win.minimize();
+function winmin() {
+  win.minimize();
 }
 
 const port = new SerialPort(portName, {
@@ -25,17 +24,19 @@ var y;
 var z;
 var temp;
 
-var dryTime,loadedTime,grossTime;
+var dryTime, loadedTime, grossTime;
 
 port.on("open", line => console.log("Open Connection"));
 
 parser.on("data", line => (temp = line));
 function dryFetch() {
-  dryTime= new Date().toString();  
+  dryTime = new Date().toString();
   document.querySelector(".df-btn").classList.add("d-none");
   document.querySelector(".df-val").classList.remove("d-none");
   x = Number(temp);
-  document.querySelector(".df-val").innerHTML = `${x} Kgs<p class="h6 font-weight-normal text-muted">Time:${dryTime}</p>`;
+  document.querySelector(
+    ".df-val"
+  ).innerHTML = `${x} Kgs<p class="h6 font-weight-normal text-muted">Time:${dryTime}</p>`;
 
   if (x === undefined) {
     setTimeout(() => {
@@ -51,12 +52,14 @@ function dryFetch() {
   }
 }
 function loadedFetch() {
-  loadedTime= new Date().toString();
+  loadedTime = new Date().toString();
   document.querySelector(".lf-btn").classList.add("d-none");
   document.querySelector(".lf-val").classList.remove("d-none");
   y = Number(temp);
-  time_y= new Date().toString();
-  document.querySelector(".lf-val").innerHTML = `${y} Kgs<p class="h6 font-weight-normal text-muted">Time:${loadedTime}</p>`;
+  time_y = new Date().toString();
+  document.querySelector(
+    ".lf-val"
+  ).innerHTML = `${y} Kgs<p class="h6 font-weight-normal text-muted">Time:${loadedTime}</p>`;
   if (y === undefined) {
     setTimeout(() => {
       document.querySelector(
@@ -72,94 +75,120 @@ function loadedFetch() {
 }
 
 async function grossFetch() {
-  grossTime = new Date().toString();  
+  grossTime = new Date().toString();
   z = y - x;
   document.querySelector(".gf-btn").classList.add("d-none");
   document.querySelector(".gf-val").classList.remove("d-none");
-  time_z= new Date().toString();
-  document.querySelector(".gf-val").innerHTML = `${z} Kgs <p class="h6 font-weight-normal text-muted">Time:${grossTime}</p>`;
+  time_z = new Date().toString();
+  document.querySelector(
+    ".gf-val"
+  ).innerHTML = `${z} Kgs <p class="h6 font-weight-normal text-muted">Time:${grossTime}</p>`;
   if (z === undefined) {
     setTimeout(() => {
       document.querySelector(
         ".gf-val"
       ).innerHTML = `Error Getting Weight Please Reset`;
     }, 1000);
-  }
-  else
-  {
-    var cname = document.getElementById('c_name').value;
-    var mname = document.getElementById('m_name').value;
-    var vname = document.getElementById('v_name').value;
-    var sname = document.getElementById('s_name').value;
-console.log(x);
-    if( cname !== "" && vname!=="" && !isNaN(x) && !isNaN(y) && !isNaN(z)  )
-    {
-        var userData= {
-            "Customer_Name" : cname,
-            "Vehicle_Number": vname,
-            "Material" : mname,
-            "Supplier" : sname,
-            "Tire_Weight": x,
-            "Tire_Weight_Time" : dryTime,
-            "Loaded_Weight" : y,
-            "Loading_Time" : loadedTime,
-            "Gross_Weight" : z,
-            "Gross_Weight_Time" : grossTime,
-            "Timestamp" : Date.now()
-        }
-        console.log(userData);
-        db.collection('users').doc(auth.currentUser.uid).collection('Ticket').add(userData);
-        document.querySelector('.slip').classList.add('d-none');
-        document.querySelector('.tick-reg').classList.remove('d-none');
-        setTimeout(()=>{
-          x = undefined;
-          y = undefined;
-          z = undefined;
-          document.querySelector(".df-btn").classList.remove("d-none");
-          document.querySelector(".df-val").classList.add("d-none");
-          document.querySelector(".df-val").innerHTML = `${x} Kgs`;
+  } else {
+    let ticketNo;
+    await db.collection("ticketsCount")
+      .get()
+      .then(snapshots => {
+        ticketNo = Number(snapshots.docs[0].data().NoOfTickets) + 1;
+      });
+    console.log(ticketNo);
+    var cname = document.getElementById("c_name").value;
+    var mname = document.getElementById("m_name").value;
+    var vname = document.getElementById("v_name").value;
+    var sname = document.getElementById("s_name").value;
+    console.log(x);
+    if (cname !== "" && vname !== "" && !isNaN(x) && !isNaN(y) && !isNaN(z)) {
+      var userData = {
+        Ticket_No: ticketNo,
+        Customer_Name: cname,
+        Vehicle_Number: vname,
+        Material: mname,
+        Supplier: sname,
+        Tire_Weight: x,
+        Tire_Weight_Time: dryTime,
+        Loaded_Weight: y,
+        Loading_Time: loadedTime,
+        Gross_Weight: z,
+        Gross_Weight_Time: grossTime,
+        Timestamp: Date.now()
+      };
+      console.log(userData);
+      const tick = await db
+        .collection("users")
+        .doc(auth.currentUser.uid)
+        .collection("Ticket")
+        .add(userData);
+      document.querySelector(".slip").classList.add("d-none");
+      document.querySelector(".tick-reg").classList.remove("d-none");
+      setTimeout(() => {
+        x = undefined;
+        y = undefined;
+        z = undefined;
+        document.querySelector(".df-btn").classList.remove("d-none");
+        document.querySelector(".df-val").classList.add("d-none");
+        document.querySelector(".df-val").innerHTML = `${x} Kgs`;
 
-          document.querySelector(".lf-btn").classList.remove("d-none");
-          document.querySelector(".lf-val").classList.add("d-none");
-          document.querySelector(".lf-val").innerHTML = `${y} Kgs`;
+        document.querySelector(".lf-btn").classList.remove("d-none");
+        document.querySelector(".lf-val").classList.add("d-none");
+        document.querySelector(".lf-val").innerHTML = `${y} Kgs`;
 
-          document.querySelector(".gf-btn").classList.remove("d-none");
-          document.querySelector(".gf-val").classList.add("d-none");
-          document.querySelector(".gf-val").innerHTML = `${z} Kgs`;
+        document.querySelector(".gf-btn").classList.remove("d-none");
+        document.querySelector(".gf-val").classList.add("d-none");
+        document.querySelector(".gf-val").innerHTML = `${z} Kgs`;
 
-        document.getElementById('c_name').value = "";
-        document.getElementById('v_name').value = "";
-        document.querySelector('.tick-reg').classList.add('d-none');
-        document.querySelector('.components').classList.remove('d-none');
-        },2000);
+        document.getElementById("c_name").value = "";
+        document.getElementById("v_name").value = "";
+        document.querySelector(".tick-reg").classList.add("d-none");
+        document.querySelector(".components").classList.remove("d-none");
 
-        db.collection("users").doc(auth.currentUser.uid).collection('Ticket').where('Timestamp','>=',new Date().setHours(0,0,0,0)).where('Timestamp','<=',new Date().setHours(23,59,59,59)).get().then((snapshots)=>{
-          snapshots.forEach((doc)=>{
-              count++;
-          })
-          document.querySelector('.slip-gen').textContent = `${count}`;})
-          
-        var transporter = nodemailer.createTransport({
-          host: "smtp.gmail.com",
-          port: 587,
-          secure: false,
-          auth: {
-            user: "exigencyaid@gmail.com",
-            pass: "qwertY123."
-          }
+
+      }, 2000);
+
+      db.collection("ticketsCount")
+        .doc("8Wb4NtiBXO8coiKwRTW7")
+        .update({ NoOfTickets: ticketNo });
+      db.collection("users")
+        .doc(auth.currentUser.uid)
+        .collection("Ticket")
+        .where("Timestamp", ">=", new Date().setHours(0, 0, 0, 0))
+        .where("Timestamp", "<=", new Date().setHours(23, 59, 59, 59))
+        .get()
+        .then(snapshots => {
+          snapshots.forEach(doc => {
+            count++;
+          });
+          document.querySelector(".slip-gen").textContent = `${count}`;
+          document.querySelector(".tick-gen").textContent = `${ticketNo}`;
         });
-       
-        // send mail with defined transport object
-        let info = await transporter.sendMail({
-          from: "ARSS group<ARSS@gmail.com>", // sender address
-          to:
-            "rahul.122293@gmail.com,theuniqueraj@gmail.com", // list of receivers
-          subject: "ARSS Weighbridge info", // Subject line
-          text:
-            "New Vehicle Weighed", // plain text body
-            html: `<table style=" border:2px solid red">
+
+      var transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: "exigencyaid@gmail.com",
+          pass: "qwertY123."
+        }
+      });
+
+      // send mail with defined transport object
+      let info = await transporter.sendMail({
+        from: "ARSS group<ARSS@gmail.com>", // sender address
+        to: "rahul.122293@gmail.com,theuniqueraj@gmail.com", // list of receivers
+        subject: `ARSS Weighbridge info for Ticket:${ticketNo}` , // Subject line
+        text: "New Vehicle Weighed", // plain text body
+        html: `<table style=" border:2px solid red">
 
             <tbody>
+            <tr>
+              <td>Ticket Number ::</td>
+              <td>${ticketNo}</td>
+             </tr>
               <tr>
                   <td>Customer Name ::</td>
                   <td>${cname}</td>
@@ -213,69 +242,58 @@ console.log(x);
             </tbody>
         </table>
         <p><b>ARSS Group Connect</b></p>` // html body
-        });
-      
-        console.log("Mail sent: %s", info.messageId);
+      });
 
-
+      console.log("Mail sent: %s", info.messageId);
+    } else {
+      document.getElementById("form-cau").classList.remove("d-none");
     }
-    else{
-        document.getElementById('form-cau').classList.remove('d-none');
-    }
-    
-  } 
-    
-
-
+  }
 }
 
+//   var options = {
+//     method: "POST",
+//     hostname: "api.msg91.com",
+//     port: null,
+//     path: "/api/v2/sendsms?country=91",
+//     headers: {
+//       authkey: "312318AGW5Gm4OM4Tw5e16d0d0P1",
+//       "content-type": "application/json"
+//     }
+//   };
 
-  
+//   var req = http.request(options, function(res) {
+//     var chunks = [];
 
-  //   var options = {
-  //     method: "POST",
-  //     hostname: "api.msg91.com",
-  //     port: null,
-  //     path: "/api/v2/sendsms?country=91",
-  //     headers: {
-  //       authkey: "312318AGW5Gm4OM4Tw5e16d0d0P1",
-  //       "content-type": "application/json"
-  //     }
-  //   };
+//     res.on("data", function(chunk) {
+//       chunks.push(chunk);
+//     });
 
-  //   var req = http.request(options, function(res) {
-  //     var chunks = [];
+//     res.on("end", function() {
+//       var body = Buffer.concat(chunks);
+//       console.log(body.toString());
+//     });
+//   });
 
-  //     res.on("data", function(chunk) {
-  //       chunks.push(chunk);
-  //     });
+//   req.write(
+//     JSON.stringify({
+//       sender: "ARSSGP",
+//       route: "4",
+//       country: "91",
+//       sms: [
+//         {
+//           message:
+//             "New Vehicle Weighed At Khorda at " +
+//            new Date().toString() +
+//             `With \n Dry Weight ${x}. Loaded Weight:${y}. Gross Weight: ${z} `,
+//           to: [7787847713, 7679099464, 7749803313]
+//         }
+//       ]
+//     })
+//   );
+//   req.end();
 
-  //     res.on("end", function() {
-  //       var body = Buffer.concat(chunks);
-  //       console.log(body.toString());
-  //     });
-  //   });
-
-  //   req.write(
-  //     JSON.stringify({
-  //       sender: "ARSSGP",
-  //       route: "4",
-  //       country: "91",
-  //       sms: [
-  //         {
-  //           message:
-  //             "New Vehicle Weighed At Khorda at " +
-  //            new Date().toString() +
-  //             `With \n Dry Weight ${x}. Loaded Weight:${y}. Gross Weight: ${z} `,
-  //           to: [7787847713, 7679099464, 7749803313]
-  //         }
-  //       ]
-  //     })
-  //   );
-  //   req.end();
- 
-document.getElementById('reset').addEventListener('click',(e)=>{
-
+document.getElementById("reset").addEventListener("click", e => {
   e.preventDefault();
   x = undefined;
   y = undefined;
@@ -292,10 +310,9 @@ document.getElementById('reset').addEventListener('click',(e)=>{
   document.querySelector(".gf-val").classList.add("d-none");
   document.querySelector(".gf-val").innerHTML = `${z} Kgs`;
 
-document.getElementById('c_name').value = "";
-document.getElementById('v_name').value = "";
-
-})
+  document.getElementById("c_name").value = "";
+  document.getElementById("v_name").value = "";
+});
 
 port.write("ROBOT POWER ON\n");
 //> ROBOT ONLINE

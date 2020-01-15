@@ -69,11 +69,11 @@
                         <div class="col-12 user-com align-self-center m-1" style="background: #222326;">
                             <div class="row justify-content-center align-items-center w-100">
                                 <div class="col-6 align-self-center bg-warning h-100">
-                                    <span class="text-dark"><i class="fas fa-map-marker-alt fa-3x p-5"></i></span>
+                                    <span class="text-dark"><i class="fas fa-ticket-alt fa-3x p-5"></i></span>
                                 </div>
                                 <div class="col-6 align-self-center">
-                                    <p class="font-weight-bold text-warning lead">Last Ticket</p>
-
+                                    <p class="font-weight-bold text-warning lead">Last Ticket Served</p>
+                                    <h3 class="tick-gen"></h3>
                                 </div>
                             </div>
                         </div>
@@ -209,15 +209,26 @@
              var sec = x.getSeconds();  
              document.querySelector('.time-gen').textContent = `${hr}:${min}:${sec}`;
         },1000);
-        var count = 0 ;
+        var count = 0,ticket ;
         auth.onAuthStateChanged(function (user) {
             db.collection("users").doc(auth.currentUser.uid).collection('Ticket').where('Timestamp','>=',new Date().setHours(0,0,0,0)).where('Timestamp','<=',new Date().setHours(23,59,59,59)).get().then((snapshots)=>{
             snapshots.forEach((doc)=>{
                 count++;
             })
             document.querySelector('.slip-gen').textContent = `${count}`;
+        });
+        db.collection("users").doc(auth.currentUser.uid).collection('Ticket').orderBy('Ticket_No','desc').get().then((snapshot)=>{
+            var ticket = snapshot.docs.length;
+            if(ticket !== 0)
+                document.querySelector(".tick-gen").textContent = snapshot.docs[0].data().Ticket_No;
+            else
+            document.querySelector(".tick-gen").textContent = 0;
+            
+        console.log(snapshot.docs[0].data());
         })
+
     });
+
         
     
 

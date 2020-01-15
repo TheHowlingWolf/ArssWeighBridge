@@ -16,7 +16,7 @@ var firebaseConfig = {
   const auth = firebase.auth();
   const db = firebase.firestore();
 
-
+/* 
   document.onkeydown = function() {    
     switch (event.keyCode) { 
         case 116 : //F5 button
@@ -30,4 +30,4 @@ var firebaseConfig = {
                 return false; 
             } 
     }
-}
+} */
