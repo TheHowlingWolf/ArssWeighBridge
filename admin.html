@@ -70,14 +70,72 @@
                         </div>
                         <div class="col-12">
                             <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2"
-                            onclick="login();">Update Password</button>
+                            onclick="updatePass();">Update Password</button>
                         </div>
                         <div class="col-12">
                             <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2"
-                            onclick="signup();">Update User Authentication Key</button>
+                            onclick="authPass();">Update User Authentication Key</button>
                         </div>
                         <button id="close-btn" class="btn btn btn-transparent text-warning m-2 p-0"
                             onclick="back()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Admin Panel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="settings-menu-updatepass d-none">
+        <div class="container d-flex h-100 text-center">
+            <div class="row justify-content-center align-items-center w-100">
+                <div class="col align-self-center">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-12">
+                            <img src="./lock.png" alt="" srcset="" width="25%">
+                        </div>
+                        <div class="col-12">
+                            
+                                <input name="updatePass" type="text" class="form-control rounded w-50 mt-2 d-inline"
+                                                id="updatePass" placeholder="Enter New Password">
+                        </div>
+                        <div class="col-12">
+                            
+                                <input name="oldPass" type="text" class="form-control rounded w-50 mt-2 d-inline"
+                                                id="oldPass" placeholder="Enter Old Password">
+                        </div>
+                        <div class="col-12">
+                            <input type="submit"
+                            class="login-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
+                        </div>
+                        <button id="close-btn" class="btn btn btn-transparent text-warning m-2 p-0"
+                            onclick="setBack()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Settings Menu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="settings-menu-updateauth d-none">
+        <div class="container d-flex h-100 text-center">
+            <div class="row justify-content-center align-items-center w-100">
+                <div class="col align-self-center">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-12">
+                            <img src="./defense.png" alt="" srcset="" width="25%">
+                        </div>
+                        <div class="col-12">
+                            
+                                <input name="updatePass" type="text" class="form-control rounded w-50 mt-2 d-inline"
+                                                id="authUpdatePass" placeholder="Enter New Authentication Password">
+                        </div>
+                        <div class="col-12">
+                            
+                                <input name="oldPass" type="text" class="form-control rounded w-50 mt-2 d-inline"
+                                                id="authOldPass" placeholder="Enter Old Authentication Password">
+                        </div>
+                        <div class="col-12">
+                            <input type="submit"
+                            class="login-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
+                        </div>
+                        <button id="close-btn" class="btn btn btn-transparent text-warning m-2 p-0"
+                            onclick="setBack()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Settings Menu</button>
                     </div>
                 </div>
             </div>
@@ -98,8 +156,7 @@
                 <div class="col-12 my-2 align-self-center justify-content-center row">
                     <button class="btn px-4 mx-1 btn-warning border-danger" id="tableBack" onclick="back()"> <b> Back</b></button>
                     <button class="btn px-4 mx-1 btn-warning border-danger d-none" id="searchBack" onclick="SearchBack()"> <b> Back</b></button>
-                    <button class="bg-dark mx-1  btn text-white border-warning" onclick="downloadPage()">Download
-                        Slips</button>
+                    <button class="bg-dark mx-1  btn text-white border-warning" onclick="downloadPage()">Download    Slips</button>
                     <form id="search-ticket" class="mx-1">
                         <div class="p-1 bg-light rounded rounded-pill shadow-sm ">
                             <div class="input-group">

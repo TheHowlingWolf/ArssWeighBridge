@@ -31,11 +31,14 @@ function moreDetails(siteObj) {
     });
 }
 
+
 function back() {
   document.querySelector(".scrollable").classList.remove("d-none");
   document.querySelector(".details-site").classList.add("d-none");
   document.querySelector("#download-slips").classList.add("d-none");
   document.querySelector(".settings-menu").classList.add("d-none");
+  document.querySelector(".settings-menu-updatepass").classList.add("d-none");
+  document.querySelector(".settings-menu-updateauth").classList.add("d-none");
   document.getElementById("site-details").innerHTML = "";
 
 }
@@ -45,6 +48,37 @@ function settings(){
   document.querySelector(".details-site").classList.add("d-none");
   document.querySelector("#download-slips").classList.add("d-none");
   document.querySelector(".settings-menu").classList.remove("d-none");
+  document.querySelector(".settings-menu-updatepass").classList.add("d-none");
+  document.querySelector(".settings-menu-updateauth").classList.add("d-none");
+}
+
+function updatePass()
+{
+  document.querySelector(".scrollable").classList.add("d-none");
+  document.querySelector(".details-site").classList.add("d-none");
+  document.querySelector("#download-slips").classList.add("d-none");
+  document.querySelector(".settings-menu").classList.add("d-none");
+  document.querySelector(".settings-menu-updatepass").classList.remove("d-none");
+  document.querySelector(".settings-menu-updateauth").classList.add("d-none");
+}
+
+function authPass()
+{
+  document.querySelector(".scrollable").classList.add("d-none");
+  document.querySelector(".details-site").classList.add("d-none");
+  document.querySelector("#download-slips").classList.add("d-none");
+  document.querySelector(".settings-menu").classList.add("d-none");
+  document.querySelector(".settings-menu-updatepass").classList.add("d-none");
+  document.querySelector(".settings-menu-updateauth").classList.remove("d-none");
+}
+
+function setBack(){
+    document.querySelector(".scrollable").classList.add("d-none");
+  document.querySelector(".details-site").classList.add("d-none");
+  document.querySelector("#download-slips").classList.add("d-none");
+  document.querySelector(".settings-menu").classList.remove("d-none");
+  document.querySelector(".settings-menu-updatepass").classList.add("d-none");
+  document.querySelector(".settings-menu-updateauth").classList.add("d-none");
 }
 
 var sites = document.getElementById("sites");
@@ -126,6 +160,8 @@ function downloadPage() {
   document.querySelector(".details-site").classList.add("d-none");
   document.querySelector("#download-slips").classList.remove("d-none");
   document.querySelector(".settings-menu").classList.add("d-none");
+  document.querySelector(".settings-menu-updatepass").classList.add("d-none");
+  document.querySelector(".settings-menu-updateauth").classList.add("d-none");
 }
 
 function convertToCSV(objArray) {
