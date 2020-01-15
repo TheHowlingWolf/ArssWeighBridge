@@ -4,48 +4,64 @@ const site = document.getElementById('siteSignUp');
 site.addEventListener('submit', (e) => {
     //preventing default refresh
     e.preventDefault();
-    console.log('submit');
-
+    var adminKey;
+    
+    (async function getAdminKey(){
+        await db.collection("ticketsCount").get().then((snapshot)=>{
+            adminKey=snapshot.docs[0].data().adminKey;   
+            console.log(snapshot.docs[0].data().adminKey);
+        });
+        
+    console.log(adminKey);
+    var userKey = document.getElementById('authKey').value;
+    console.log(userKey);
     //get user info
+    if(userKey === adminKey)
+    {
+        console.log('hi');
     const siteName = site['sitename'].value;
     const email = site['email'].value;
     const password = site['password'].value;
     const devId = site['devId'].value;
     const adminAccess = false;
-    console.log(email);
-    //console.log(siteName+'\n'+devId+'\n'+password);
-
-    //signup the user using firebase
+        //signup the user using firebase
     auth.createUserWithEmailAndPassword(email, password)
-        .then(cred => {
-            //  console.log(cred.user.uid);
-            document.querySelector('.Register').classList.add('d-none');
-            document.querySelector('.con-reg').classList.remove('d-none');
-            setTimeout((time) => {
-                site.reset();
-                auth.signOut().then(() => {
-                    document.querySelector('.login').classList.remove('d-none');
-                    document.querySelector('.intro').classList.add('d-none');
-                    document.querySelector('.Register').classList.add('d-none');
-                    document.querySelector('.con-reg').classList.add('d-none');
-                    document.querySelector('.register-nav').style.borderBottom = '0px solid #ffc107';
-                    document.querySelector('.home-nav').style.borderBottom = '0px solid #ffc107';
-                    document.querySelector('.login-nav').style.borderBottom = '2px solid #ffc107';
-                    db.collection('UserProfile').add({
-                        uid: cred.user.uid,
-                        siteName: siteName,
-                        deviceId: devId,
-                        adminAccess: adminAccess
-                    });
-                })
-            }, 2000);
-        }).catch(function (error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
+    .then(cred => {
+        //  console.log(cred.user.uid);
+        document.querySelector('.Register').classList.add('d-none');
+        document.querySelector('.con-reg').classList.remove('d-none');
+        setTimeout((time) => {
+            site.reset();
+            auth.signOut().then(() => {
+                document.querySelector('.login').classList.remove('d-none');
+                document.querySelector('.intro').classList.add('d-none');
+                document.querySelector('.Register').classList.add('d-none');
+                document.querySelector('.con-reg').classList.add('d-none');
+                document.querySelector('.register-nav').style.borderBottom = '0px solid #ffc107';
+                document.querySelector('.home-nav').style.borderBottom = '0px solid #ffc107';
+                document.querySelector('.login-nav').style.borderBottom = '2px solid #ffc107';
+                db.collection('UserProfile').add({
+                    uid: cred.user.uid,
+                    siteName: siteName,
+                    deviceId: devId,
+                    adminAccess: adminAccess
+                });
+            })
+        }, 2000);
+    }).catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
 
-            document.querySelector('.error').innerHTML = `OPPS! ${errorMessage}`;
+        document.querySelector('.error').innerHTML = `OPPS! ${errorMessage}`;
 
-        });
+    });
+    }
+    else
+    {
+        document.querySelector('.error').innerHTML = `OPPS! Invalid Authentication Key Please Contact Admin`;
+    }
+    })();
+     
 });
 
 //login users
