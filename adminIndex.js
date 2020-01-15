@@ -338,7 +338,8 @@ function moreDetails(siteObj) {
         var adminKey;
         
         var user = auth.currentUser;
-        await user.reauthenticateWithCredential(user.email,oldPassKey).then(function() {
+        var credential = firebase.auth.EmailAuthProvider.credential(user.email, oldPassKey);
+        await user.reauthenticateWithCredential(credential).then(function() {
             if(oldPassKey !== newPassKey && newPassKey!= "" && oldPassKey!=="")
             {
                 user.updatePassword(newPassKey).then(()=>{
@@ -366,7 +367,6 @@ function moreDetails(siteObj) {
           })
           .catch(function(error) {
             var errorMessage = error.message;
-            console.log(errorMessage);
                     document.querySelector('.pass-error').textContent = `OPPS! ${errorMessage}`;
           }); 
     })();
