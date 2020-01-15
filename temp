@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ArssGroup Weigh Bridge</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+</head>
+
+<body>
+    <section class="buttons my-2">
+        <div class="container-fluid m-0">
+            <div class="row w-100 m-0">
+                <div class="col-6 w-100">
+                    <span class="h6 text-warning">ARSS Group Connect</span>
+                </div>
+                <div class="col-6 text-right w-100">
+                    <span class="pl-5">
+                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0"
+                            onclick="winmin()"><i class="fas fa-window-minimize p-1"></i></button>
+                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0"
+                            onclick="winclose()"><i class="fas fa-times-circle p-1"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="site_header">
+        <div class="container d-flex h-100 text-center">
+            <div class="row justify-content-center align-items-center w-100">
+                <div class="col align-self-center">
+                    <div class="Site_name_header h4 text-center text-warning font-weight-bold m-0"><i
+                            class="text-warning fas fa-user p-2 ml-5"></i>ADMIN PANEL
+                            <button class="btn float-right px-3 btn-warning border-danger" onclick="settings()"><i class="fas fa-cog"></i><b> Settings</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="settings-menu d-none">
+        <div class="container d-flex h-100 text-center">
+            <div class="row justify-content-center align-items-center w-100">
+                <div class="col align-self-center">
+                    <img src="./scale.png" alt="" srcset="" width="25%">
+                    <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2"
+                        onclick="login();">Update Password</button>
+                    <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2"
+                        onclick="signup();">Update User Authentication Key</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="scrollable">
+        
+        <div class="row  justify-content-center" id="sites">
+
+        </div>
+    </section>
+
+    <section class="scrollable details-site d-none">
+        <div class="container h-100 text-center">
+            <div class="row justify-content-center align-items-center mt-4">
+                <div class="col-12 my-2 align-self-center">
+                    <button class="btn px-4 mx-1 btn-warning border-danger" onclick="back()"> <b> Back</b></button>
+
+                    <button class="bg-dark mx-1  btn text-white border-warning" onclick="downloadPage()">Download
+                        Slips</button>
+
+                </div>
+            </div>
+            <div class="row justify-content-center  mt-3 pt-4">
+                <!-- <div class="col-12 align-self-start">
+                    <nav aria-label="Page navigation example">
+                        <ul class=" pagination justify-content-center">
+                            <li class="page-item "><a class="page-link bg-dark border-warning text-warning"
+                                    href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning"
+                                    href="#">1</a>
+                            </li>
+                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning"
+                                    href="#">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning"
+                                    href="#">3</a>
+                            </li>
+                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning"
+                                    href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div> -->
+                <div class="col-2"></div>
+
+                <table class=" table-por table bg-warning  text-center">
+
+                    <thead>
+                        <th>Ticket No.</th>
+                        <th>Customer Name</th>
+                        <th> Vehicle Number</th>
+                        <th> Material</th>
+                        <th> Supplier</th>
+                        <th> Tyre Weight (kgs)</th>
+                        <th>Loaded Weight (kgs)</th>
+                        <th>Gross Weight (kgs)</th>
+                        <th> Gross Weight Time</th>
+                        <th>Date</th>
+                    </thead>
+                    <tbody id="site-details">
+
+
+                    </tbody>
+
+                </table>
+
+                <div class="col-2"></div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="download-slips" class="d-none mt-5 pt-5">
+        <div class="row justify-content-center">
+            <button id="close-btn" class="col-12 btn btn btn-transparent text-warning m-2 p-0" onclick="adminback()"><i
+                    class="fas fa-arrow-circle-left p-1"></i>Back </button>
+            <form id="date-form" class="col-6 row justify-content-center">
+                <div class="form-group col-10">
+                    <div class="input-group input-group-lg">
+                        <div class="container text-center">
+                            <div class="row w-100">
+                                <div class="col-2 w-100">
+                                    <span class="input-group-addon"><i class="far fa-id-badge fa-2x pt-2"></i></span>
+                                </div>
+                                <div class="col-10 w-100">
+                                    <input type="date" name="startDate" id="startDate" class="form-control rounded">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-10 ">
+                    <div class="input-group input-group-lg">
+                        <div class="container text-center">
+                            <div class="row w-100">
+                                <div class="col-2 w-100">
+                                    <span class="input-group-addon"><i class="far fa-id-badge fa-2x pt-2"></i></span>
+                                </div>
+                                <div class="col-10 w-100">
+                                    <input type="date" name="endDate" id="endDate" class="form-control rounded">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10 text-center">
+
+
+                    <button
+                        class="text-center login-btn btn-lg btn  btn-outline-warning btn-danger text-light mt-3 mx-2">Download</button>
+                </div>
+
+
+
+            </form>
+        </div>
+
+
+    </section>
+
+    <section class="initials">
+        <div class="container w-100 text-center">
+            <div class="row justify-content-center align-items-center w-100">
+                <div class="col align-self-center">
+                    <div class="row justify-content-center fixed-bottom">
+                        <div class="col align-self-center">
+                            <a href="#" class="logout home-nav text-warning mx-2">Logout</a>
+                            <p class="text-light mt-2"> Powered By <a href="#" style="text-decoration: none;"><b
+                                        class="text-danger">Codepth</b></a> All Rights Reserved. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
+<script src="./firebase.js"></script>
+<script src="./auth_out.js"></script>
+<script src="./adminIndex.js"></script>
+<script src="./serial.js"></script>
+
+</html>
