@@ -72,7 +72,8 @@
                                     <span class="text-dark"><i class="fas fa-map-marker-alt fa-3x p-5"></i></span>
                                 </div>
                                 <div class="col-6 align-self-center">
-                                    
+                                    <p class="font-weight-bold text-warning lead">Last Ticket</p>
+
                                 </div>
                             </div>
                         </div>
@@ -218,27 +219,7 @@
         })
     });
         
-    var x,y;
-    (function () {
-        
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } else {
-                     console.log("Geolocation is not supported by this browser.");
-                }
-            })();
-
-            function showPosition(position) {
-                // d.innerHTML = "Latitude: " + position.coords.latitude +
-                //     "<br>Longitude: " + position.coords.longitude;
-                console.log(position);
-                x = position.coords.latitude;
-                y = position.coords.longitude;
-                console.log(x);
-                console.log(y);
-                document.querySelector('.#map').src = `https://www.google.com/maps/@${x},${y},13z`
-            }
-            showPosition();
+    
 
     </script>
     <script src="./serial.js"></script>

@@ -11,7 +11,7 @@ site.addEventListener('submit', (e) => {
     const email = site['email'].value;
     const password = site['password'].value;
     const devId = site['devId'].value;
-    const adminAccess = true;
+    const adminAccess = false;
     console.log(email);
     //console.log(siteName+'\n'+devId+'\n'+password);
 

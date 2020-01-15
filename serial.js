@@ -133,7 +133,12 @@ console.log(x);
         document.querySelector('.components').classList.remove('d-none');
         },2000);
 
-
+        db.collection("users").doc(auth.currentUser.uid).collection('Ticket').where('Timestamp','>=',new Date().setHours(0,0,0,0)).where('Timestamp','<=',new Date().setHours(23,59,59,59)).get().then((snapshots)=>{
+          snapshots.forEach((doc)=>{
+              count++;
+          })
+          document.querySelector('.slip-gen').textContent = `${count}`;})
+          
         var transporter = nodemailer.createTransport({
           host: "smtp.gmail.com",
           port: 587,
@@ -206,7 +211,8 @@ console.log(x);
               
               
             </tbody>
-        </table>` // html body
+        </table>
+        <p><b>ARSS Group Connect</b></p>` // html body
         });
       
         console.log("Mail sent: %s", info.messageId);

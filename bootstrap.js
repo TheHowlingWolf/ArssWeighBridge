@@ -15,7 +15,8 @@ function createWindow() {
         transparent:true,
         frame:false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            devTools:false
         }
     });
     win.show();
@@ -29,6 +30,8 @@ function createWindow() {
     win.on('closed',()=>{
         win = null;
     });
+
+    win.webContents.on("devtools-opened", () => { win.webContents.closeDevTools(); });
 
 }
 

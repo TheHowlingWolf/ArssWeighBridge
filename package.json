@@ -5,13 +5,15 @@
   "main": "bootstrap.js",
   "scripts": {
     "start": "electron .",
-    "check": "electron-rebuild"
+    "check": "electron-rebuild",
+    "build": "electron-packager . ARSSConnect --ignore=node_modules/electron-*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "electron": "^7.1.7",
+    "electron-packager": "^14.2.0",
     "electron-rebuild": "^1.8.8"
   },
   "dependencies": {
