@@ -106,3 +106,11 @@ a:hover{
   .settings-menu{
     height: 645px;
 }
+
+.settings-menu-updatepass{
+    height: 645px;
+}
+
+.settings-menu-updateauth{
+    height: 645px;
+}
