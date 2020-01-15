@@ -37,212 +37,156 @@
                 </div>
                 <div class="col-6 text-right w-100">
                     <span class="pl-5">
-                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0" onclick="winmin()"><i class="fas fa-window-minimize p-1"></i></button>
-                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0" onclick="winclose()"><i class="fas fa-times-circle p-1"></i></button>
-                    </span> 
+                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0"
+                            onclick="winmin()"><i class="fas fa-window-minimize p-1"></i></button>
+                        <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0"
+                            onclick="winclose()"><i class="fas fa-times-circle p-1"></i></button>
+                    </span>
                 </div>
             </div>
-        </div>   
+        </div>
     </section>
 
     <section class="site_header">
         <div class="container d-flex h-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col align-self-center">
-                    <div class="Site_name_header h4 text-center text-warning font-weight-bold m-0"><i class="text-warning fas fa-user p-2"></i>ADMIN PANEL</span>
+                    <div class="Site_name_header h4 text-center text-warning font-weight-bold m-0"><i
+                            class="text-warning fas fa-user p-2"></i>ADMIN PANEL</span>
                     </div>
                 </div>
             </div>
         </div>
-        </section>
-    
+    </section>
+
 
     <section class="scrollable">
-        <div class="row  justify-content-center">
-            <div class="col-4 bg-warning p-3 m-2  text-center  ">
-                <h4 class="text-uppercase">
-                    Site 1
-                </h4>
-                <button class="btn  border-danger bg-dark text-white mt-4 " onclick="moreDetails()">View
-                    Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2   text-center">
-                <h4 class="text-uppercase">
-                    Site 2</h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2 text-center  ">
-                <h4 class="text-uppercase">
-                    Site 3
-                </h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2 text-center  ">
-                <h4 class="text-uppercase">Site 4</h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2 text-center  ">
-                <h4 class="text-uppercase">Site 5</h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2 text-center  ">
-                <h4 class="text-uppercase"> Site 6</h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2  text-center  ">
-                <h4 class="text-uppercase">
-                    Site 1
-                </h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2   text-center">
-                <h4 class="text-uppercase">
-                    Site 2</h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2 text-center  ">
-                <h4 class="text-uppercase">
-                    Site 3
-                </h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2 text-center  ">
-                <h4 class="text-uppercase">Site 4</h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2 text-center  ">
-                <h4 class="text-uppercase">Site 5</h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
-            <div class="col-4 bg-warning p-3 m-2 text-center  ">
-                <h4 class="text-uppercase"> Site 6</h4>
-                <button class="btn  border-danger bg-dark text-white mt-4  ">View Details</button>
-            </div>
+        <div class="row  justify-content-center" id="sites">
+
         </div>
     </section>
 
-    <section class="details-site d-none">
+    <section class="scrollable details-site d-none">
         <div class="container h-100 text-center">
-        <div class="row justify-content-center align-items-center mt-4">
-            <div class="col-12 my-2 align-self-center">
-                <button class="btn px-4 mx-1 btn-warning border-danger" onclick="back()"> <b> Back</b></button>
+            <div class="row justify-content-center align-items-center mt-4">
+                <div class="col-12 my-2 align-self-center">
+                    <button class="btn px-4 mx-1 btn-warning border-danger" onclick="back()"> <b> Back</b></button>
 
-                <button class="bg-dark mx-1  btn text-white border-warning">Download Today's Slips</button>
-                <button class="bg-dark mx-1  btn text-white border-warning">View camera</button>
+                    <button class="bg-dark mx-1  btn text-white border-warning" onclick="downloadPage()">Download Slips</button>
+
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-center align-items-center mt-5 pt-3">
-            <div class="col-12 align-self-start">
-                <nav aria-label="Page navigation example" >
+            <div class="row justify-content-center  mt-3 pt-4">
+                <!-- <div class="col-12 align-self-start">
+                    <nav aria-label="Page navigation example">
                         <ul class=" pagination justify-content-center">
                             <li class="page-item "><a class="page-link bg-dark border-warning text-warning"
                                     href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning" href="#">1</a>
+                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning"
+                                    href="#">1</a>
                             </li>
-                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning" href="#">2</a>
+                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning"
+                                    href="#">2</a>
                             </li>
-                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning" href="#">3</a>
+                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning"
+                                    href="#">3</a>
                             </li>
-                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning" href="#">Next</a>
+                            <li class="page-item"><a class="page-link bg-dark border-warning text-warning"
+                                    href="#">Next</a>
                             </li>
                         </ul>
-                </nav>
-            </div>
-            <div class="col-2"></div>
-            <div class="col-8">
-            <table class="table justify-content-center bg-warning border-danger text-center">
+                    </nav>
+                </div> -->
+                <div class="col-2"></div>
 
-                <thead>
-                    <th class=" ">Vehicle No.</th>
-                    <th>Material Name</th>
-                    <th> Tyre Weight</th>
-                    <th>Loaded Weight </th>
-                    <th class=""> NET Weight</th>
-                </thead>
-                <tbody>
-                   <tr class="">
-                       
-                       <td>
-                           WB-01-B-4102
-                        </td>
-                        <td>
-                            Steel
-                        </td>
-                        
-                        <td>
-                            20
-                        </td>
-                        
-                        <td>
-                            25
-                        </td>
-                        
-                        <td>
-                            5
-                        </td>
-                    </tr>
-                        
-                    <tr>
-                       
-                        <td>
-                            WB-01-B-4102
-                         </td>
-                         <td>
-                             Steel
-                         </td>
-                         
-                         <td>
-                             20
-                         </td>
-                         
-                         <td>
-                             25
-                         </td>
-                         
-                         <td>
-                             5
-                         </td>
-                     </tr>
-                         
-                     <tr>
-                       
-                        <td>
-                            WB-01-B-4102
-                         </td>
-                         <td>
-                             Steel
-                         </td>
-                         
-                         <td>
-                             20
-                         </td>
-                         
-                         <td>
-                             25
-                         </td>
-                         
-                         <td>
-                             5
-                         </td>
-                     </tr>
-                         
-                </tbody>
+                <table class=" table-por table bg-warning  text-center">
 
-            </table>
+                    <thead>
+                        <th>Customer Name</th>
+                        <th>Gross Weight</th>
+                        <th> Gross Weight Time</th>
+                        <th>Loaded Weight </th>
+                        <th> Loading Time</th>
+                        <th> Material</th>
+                        <th> Supplier</th>
+                        <th> Tire Weight</th>
+                        <th> Tire Weight Time</th>
+                        <th> Vehicle Number</th>
+                        <th>Date</th>
+                    </thead>
+                    <tbody id="site-details">
+
+
+                    </tbody>
+
+                </table>
+
+                <div class="col-2"></div>
             </div>
-            <div class="col-2"></div>
         </div>
         </div>
-    </div>
     </section>
+
+    <section id="download-slips" class="d-none mt-5 pt-5">
+        <div class="row justify-content-center">
+            <button id="close-btn" class="col-12 btn btn btn-transparent text-warning m-2 p-0"
+                            onclick="adminback()"><i class="fas fa-arrow-circle-left p-1"></i>Back </button>
+            <form id="date-form" class="col-6 row justify-content-center">
+                <div class="form-group col-10">
+                    <div class="input-group input-group-lg">
+                        <div class="container text-center">
+                            <div class="row w-100">
+                                <div class="col-2 w-100">
+                                    <span class="input-group-addon"><i class="far fa-id-badge fa-2x pt-2"></i></span>
+                                </div>
+                                <div class="col-10 w-100">
+                                    <input type="date" name="startDate" id="startDate" class="form-control rounded">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-10 " >
+                    <div class="input-group input-group-lg">
+                        <div class="container text-center">
+                            <div class="row w-100">
+                                <div class="col-2 w-100">
+                                    <span class="input-group-addon"><i class="far fa-id-badge fa-2x pt-2"></i></span>
+                                </div>
+                                <div class="col-10 w-100">
+                                    <input type="date" name="endDate" id="endDate" class="form-control rounded">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-10 text-center">
+                    
+                    
+                    <button
+                    class="text-center login-btn btn-lg btn  btn-outline-warning btn-danger text-light mt-3 mx-2">Download</button>
+                </div>
+                
+
+
+            </form>
+        </div>
+
+
+    </section>
+
     <section class="initials">
         <div class="container w-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col align-self-center">
-                    <div class="row justify-content-center fixed-bottom"> 
+                    <div class="row justify-content-center fixed-bottom">
                         <div class="col align-self-center">
                             <a href="#" class="logout home-nav text-warning mx-2">Logout</a>
-                            <p class="text-light mt-2"> Powered By <a href="#" style="text-decoration: none;"><b class="text-danger">Codepth</b></a> All Rights Reserved. </p>
+                            <p class="text-light mt-2"> Powered By <a href="#" style="text-decoration: none;"><b
+                                        class="text-danger">Codepth</b></a> All Rights Reserved. </p>
                         </div>
                     </div>
                 </div>
@@ -251,9 +195,14 @@
     </section>
 
 </body>
-
-<script src="./index.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
+<script src="./firebase.js"></script>
 <script src="./auth_out.js"></script>
 <script src="./adminIndex.js"></script>
 <script src="./serial.js"></script>
+
 </html>

@@ -85,61 +85,146 @@ async function grossFetch() {
       ).innerHTML = `Error Getting Weight Please Reset`;
     }, 1000);
   }
-    
+  else
+  {
     var cname = document.getElementById('c_name').value;
     var mname = document.getElementById('m_name').value;
     var vname = document.getElementById('v_name').value;
     var sname = document.getElementById('s_name').value;
 console.log(x);
-    if( cname !== "" && vname!==""  )
+    if( cname !== "" && vname!=="" && !isNaN(x) && !isNaN(y) && !isNaN(z)  )
     {
         var userData= {
-            "Customer Name" : cname,
-            "Vehicle Number": vname,
+            "Customer_Name" : cname,
+            "Vehicle_Number": vname,
             "Material" : mname,
             "Supplier" : sname,
-            "Tire Weight": x,
-            "Tire Weight Time" : dryTime,
-            "Loaded Weight" : y,
-            "Loading Time" : loadedTime,
-            "Gross Weight" : z,
-            "Gross Weight Time" : grossTime
+            "Tire_Weight": x,
+            "Tire_Weight_Time" : dryTime,
+            "Loaded_Weight" : y,
+            "Loading_Time" : loadedTime,
+            "Gross_Weight" : z,
+            "Gross_Weight_Time" : grossTime,
+            "Timestamp" : Date.now()
         }
         console.log(userData);
-        db.collection('users').doc(docRef.id).collection('Ticket').add(userData);
+        db.collection('users').doc(auth.currentUser.uid).collection('Ticket').add(userData);
+        document.querySelector('.slip').classList.add('d-none');
+        document.querySelector('.tick-reg').classList.remove('d-none');
+        setTimeout(()=>{
+          x = undefined;
+          y = undefined;
+          z = undefined;
+          document.querySelector(".df-btn").classList.remove("d-none");
+          document.querySelector(".df-val").classList.add("d-none");
+          document.querySelector(".df-val").innerHTML = `${x} Kgs`;
+
+          document.querySelector(".lf-btn").classList.remove("d-none");
+          document.querySelector(".lf-val").classList.add("d-none");
+          document.querySelector(".lf-val").innerHTML = `${y} Kgs`;
+
+          document.querySelector(".gf-btn").classList.remove("d-none");
+          document.querySelector(".gf-val").classList.add("d-none");
+          document.querySelector(".gf-val").innerHTML = `${z} Kgs`;
+
+        document.getElementById('c_name').value = "";
+        document.getElementById('v_name').value = "";
+        document.querySelector('.tick-reg').classList.add('d-none');
+        document.querySelector('.components').classList.remove('d-none');
+        },2000);
+
+
+        var transporter = nodemailer.createTransport({
+          host: "smtp.gmail.com",
+          port: 587,
+          secure: false,
+          auth: {
+            user: "exigencyaid@gmail.com",
+            pass: "qwertY123."
+          }
+        });
+       
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+          from: "ARSS group<ARSS@gmail.com>", // sender address
+          to:
+            "rahul.122293@gmail.com,theuniqueraj@gmail.com", // list of receivers
+          subject: "ARSS Weighbridge info", // Subject line
+          text:
+            "New Vehicle Weighed", // plain text body
+            html: `<table style=" border:2px solid red">
+
+            <tbody>
+              <tr>
+                  <td>Customer Name ::</td>
+                  <td>${cname}</td>
+              </tr>
+              <tr>
+                  <td>Vehicle Number ::</td>
+                  <td>${vname}</td>
+              </tr>
+              <tr>
+                  <td>Material Name ::</td>
+                  <td>${mname}</td>
+              </tr>
+              <tr>
+                  <td>Supplier Name ::</td>
+                  <td>${sname}</td>
+              </tr>
+              <tr>
+                  <td>-------------</td>
+                  <td>-------------</td>
+              </tr>
+              <tr>
+                  <td>Tyre Weight ::</td>
+                  <td>${x}</td>
+              </tr>
+              <tr>
+                  <td>Loaded Weight ::</td>
+                  <td>${y}</td>
+              </tr>
+              <tr>
+                  <td>Gross Weight ::</td>
+                  <td>${z}</td>
+              </tr>
+              <tr>
+                  <td>-------------</td>
+                  <td>-------------</td>
+              </tr>
+              <tr>
+                  <td>Tyre Weight Time ::</td>
+                  <td>${dryTime}</td>
+              </tr>
+              <tr>
+                  <td>Loaded Weight Time ::</td>
+                  <td>${loadedTime}</td>
+              </tr>
+              <tr>
+                  <td>Gross Weight Time ::</td>
+                  <td>${grossTime}</td>
+              </tr>
+              
+              
+            </tbody>
+        </table>` // html body
+        });
+      
+        console.log("Mail sent: %s", info.messageId);
+
+
     }
     else{
         document.getElementById('form-cau').classList.remove('d-none');
     }
+    
+  } 
+    
 
 
 }
 
-/*
-  var transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: {
-      user: "codeventure.kiit.sce@gmail.com",
-      pass: "rahul_123."
-    }
-  });
- 
-  // send mail with defined transport object
-  let info = await transporter.sendMail({
-    from: "ARSS group<ARSS@gmail.com>", // sender address
-    to:
-      "rahul.122293@gmail.com,theuniqueraj@gmail.com", // list of receivers
-    subject: "ARSS Weighbridge info", // Subject line
-    text:
-      "New Vehicle Weighed At Khorda at " +
-      new Date().toString() +
-      `With \n Dry Weight ${x}. Loaded Weight:${y}. Gross Weight: ${z} ` // plain text body
-    // html: "<b>Hello  world?</b>" // html body
-  });
 
-  console.log("Mail sent: %s", info.messageId);
+  
 
   //   var options = {
   //     method: "POST",
@@ -182,7 +267,7 @@ console.log(x);
   //     })
   //   );
   //   req.end();
-} */
+ 
 document.getElementById('reset').addEventListener('click',(e)=>{
 
   e.preventDefault();

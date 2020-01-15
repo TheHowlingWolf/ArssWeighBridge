@@ -69,22 +69,10 @@
                         <div class="col-12 user-com align-self-center m-1" style="background: #222326;">
                             <div class="row justify-content-center align-items-center w-100">
                                 <div class="col-6 align-self-center bg-warning h-100">
-                                    <span class="text-dark"><i class="fas fa-file-alt fa-3x p-5"></i></span>
-                                </div>
-                                <div class="col-6 align-self-center">
-                                    <p class="font-weight-bold text-warning lead">Slips Generated</p>
-                                    <h3 class="slip-gen">10</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 user-com align-self-center m-1" style="background: #222326;">
-                            <div class="row justify-content-center align-items-center w-100">
-                                <div class="col-6 align-self-center bg-warning h-100">
                                     <span class="text-dark"><i class="fas fa-map-marker-alt fa-3x p-5"></i></span>
                                 </div>
                                 <div class="col-6 align-self-center">
-                                    <p class="font-weight-bold text-warning lead">Slips Generated</p>
-                                    <h3 class="slip-gen">10</h3>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -95,14 +83,26 @@
                                 </div>
                                 <div class="col-6 align-self-center">
                                     <p class="font-weight-bold text-warning lead">Slips Generated</p>
-                                    <h3 class="slip-gen">10</h3>
+                                    <h3 class="slip-gen"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 user-com align-self-center m-1" style="background: #222326;">
+                            <div class="row justify-content-center align-items-center w-100">
+                                <div class="col-6 align-self-center bg-warning h-100">
+                                    <span class="text-dark"><i class="fas fa-clock fa-3x p-5"></i></span>
+                                </div>
+                                <div class="col-6 align-self-center">
+                                    <p class="font-weight-bold text-warning lead">Time</p>
+                                    <h3 class="time-gen"></h3>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 align-self-center">
-                    <button class="float-right btn btn-lg btn-dark text-light mt-3 mx-2" onclick="genSlip();">Generate
+                <div class="col-6 align-self-center text-center">
+                    <img src="./truck (1).png" alt="" srcset="" width="55%">
+                    <button class=" btn btn-lg btn-dark text-light mt-3 mx-2" onclick="genSlip();">Generate
                         New Slip</button>
                 </div>
             </div>
@@ -113,6 +113,8 @@
         <div class="container d-flex h-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col-12 col-style p-5" style="background: #222326;">
+                    <button id="close-btn" class="btn btn btn-transparent text-warning m-0 p-0"
+                            onclick="userback()"><i class="fas fa-arrow-circle-left p-1"></i>Back </button>
                     <div class="row justify-content-center align-items-center w-100 m-0">
                         <div class="col-6 align-self-center" style="background: #222326;">
                             <div class="dryWeight my-2 p-2">
@@ -159,6 +161,18 @@
         </div>
     </section>
 
+    <section class="tick-reg d-none">
+        <div class="container d-flex h-100 text-center">
+            <div class="row justify-content-center align-items-center w-100">
+                <div class="col align-self-center">
+                    <img src="./check.png" alt="" srcset="" width="25%">
+                    <h1 class="display-4 font-weight-bold"> Ticket Generated</h1>
+                    <h3 class="lead font-weight-normal">And Sent To Admin.....</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="initials">
         <div class="container w-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
@@ -186,10 +200,48 @@
     <script>
         AOS.init();
     </script>
-    <script src="./serial.js"></script>
-</body>
+    <script>
+        setInterval(()=>{
+            var x = new Date();
+             var hr = x.getHours();
+             var min = x.getMinutes();
+             var sec = x.getSeconds();  
+             document.querySelector('.time-gen').textContent = `${hr}:${min}:${sec}`;
+        },1000);
+        var count = 0 ;
+        auth.onAuthStateChanged(function (user) {
+            db.collection("users").doc(auth.currentUser.uid).collection('Ticket').where('Timestamp','>=',new Date().setHours(0,0,0,0)).where('Timestamp','<=',new Date().setHours(23,59,59,59)).get().then((snapshots)=>{
+            snapshots.forEach((doc)=>{
+                count++;
+            })
+            document.querySelector('.slip-gen').textContent = `${count}`;
+        })
+    });
+        
+    var x,y;
+    (function () {
+        
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                     console.log("Geolocation is not supported by this browser.");
+                }
+            })();
 
-</html>
+            function showPosition(position) {
+                // d.innerHTML = "Latitude: " + position.coords.latitude +
+                //     "<br>Longitude: " + position.coords.longitude;
+                console.log(position);
+                x = position.coords.latitude;
+                y = position.coords.longitude;
+                console.log(x);
+                console.log(y);
+                document.querySelector('.#map').src = `https://www.google.com/maps/@${x},${y},13z`
+            }
+            showPosition();
+
+    </script>
+    <script src="./serial.js"></script>
 </body>
 
 </html>

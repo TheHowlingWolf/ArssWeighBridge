@@ -31,10 +31,13 @@ function genSlip() {
     document.querySelector('.slip').classList.remove('d-none');
 }
 
+function userback() {
+    document.querySelector('.components').classList.remove('d-none');
+    document.querySelector('.slip').classList.add('d-none');
+}
+
 auth.onAuthStateChanged((user) => {
-    console.log(user);
     db.collection('UserProfile').where('uid', '==', user.uid).get().then((snapshot) => {
-        console.log(  snapshot.docs[0].data().siteName);
         document.querySelector('#site-name').innerHTML = snapshot.docs[0].data().siteName;
     })
 

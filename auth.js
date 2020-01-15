@@ -4,12 +4,14 @@ const site = document.getElementById('siteSignUp');
 site.addEventListener('submit', (e) => {
     //preventing default refresh
     e.preventDefault();
+    console.log('submit');
 
     //get user info
     const siteName = site['sitename'].value;
     const email = site['email'].value;
     const password = site['password'].value;
     const devId = site['devId'].value;
+    const adminAccess = true;
     console.log(email);
     //console.log(siteName+'\n'+devId+'\n'+password);
 
@@ -32,7 +34,8 @@ site.addEventListener('submit', (e) => {
                     db.collection('UserProfile').add({
                         uid: cred.user.uid,
                         siteName: siteName,
-                        deviceId: devId
+                        deviceId: devId,
+                        adminAccess: adminAccess
                     });
                 })
             }, 2000);
@@ -62,9 +65,18 @@ Login.addEventListener('submit', (e) => {
             Login.reset();
             setTimeout((time) => {
                 auth.onAuthStateChanged(function (user) {
-                    if (user) {
-                        window.location.assign('user.html');
-                    }
+                    db.collection('UserProfile').where('uid','==',user.uid).get().then((snapshot)=>{
+                        var adminCheck = snapshot.docs[0].data().adminAccess;
+                        console.log(adminCheck);
+
+                        if (adminCheck) {
+                            window.location.assign('admin.html');
+                        }
+                        else
+                        { 
+                            window.location.assign('user.html');
+                        }
+                   })
                 })
             }, 2000);
         })

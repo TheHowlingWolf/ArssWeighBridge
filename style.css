@@ -43,9 +43,7 @@ a:hover{
     border:2px solid ;
     border-radius: 5px;
 }
-.col-style{
-    
-}
+
 .components{
     border-top:2px solid ;
     border-bottom:2px solid ;
@@ -99,4 +97,8 @@ a:hover{
   ::-webkit-scrollbar-thumb {
     background: #ffc107; 
     border-radius: 10px;
+  }
+
+  .tick-reg{
+      height: 645px;
   }
