@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "check": "electron-rebuild",
-    "build": "electron-packager . ARSSConnect --ignore=node_modules/electron-*"
+    "package":"asar pack ARSSConnect-win32-x64/resources/app ARSSConnect-win32-x64/resources/app.asar ",
+    "build": "electron-packager . ARSSConnect  --ignore=node_modules/electron-*"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "electron-rebuild": "^1.8.8"
   },
   "dependencies": {
+    "asar": "^2.0.3",
     "http": "0.0.0",
     "nodemailer": "^6.4.2",
     "path": "^0.12.7",

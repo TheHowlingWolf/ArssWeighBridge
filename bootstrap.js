@@ -17,7 +17,7 @@ function createWindow() {
         frame:false,
         webPreferences: {
             nodeIntegration: true,
-            
+            devTools:false
         }
     });
     win.show();
@@ -32,7 +32,7 @@ function createWindow() {
         win = null;
     });
 
-    // win.webContents.on("devtools-opened", () => { win.webContents.closeDevTools(); });
+    win.webContents.on("devtools-opened", () => { win.webContents.closeDevTools(); });
 
 }
 
