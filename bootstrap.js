@@ -10,7 +10,7 @@ function createWindow() {
     win = new BrowserWindow({
         height:800,
         width:1000,
-        icon:'./logo.icns',
+        icon:'./Icon.png',
         resizable:false,
         darkTheme:true,
         transparent:true,

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ArssGroup Weigh Bridge</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -32,8 +32,8 @@
     <section class="buttons my-2">
         <div class="container-fluid m-0">
             <div class="row w-100 m-0">
-                <div class="col-6 w-100">
-                    <span class="h6 text-warning">ARSS Group Connect</span>
+                <div class="col-6 w-100 pt-1">
+                    <span class="h6 text-warning  "><img src = "./assets/pictures/Icon.png" width="20px" class="mb-1" >  ARSS Group Connect</span>
                 </div>
                 <div class="col-6 text-right w-100">
                     <span class="pl-5">
@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <div class="col-6 align-self-center text-center">
-                    <img src="./box.png" alt="" srcset="" width="55%">
+                    <img src="./assets/pictures/box.png" alt="" srcset="" width="55%">
                     <button class=" btn btn-lg btn-dark text-light mt-3 mx-2" onclick="genSlip();">Generate
                         New Slip</button>
                 </div>
@@ -166,7 +166,7 @@
         <div class="container d-flex h-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col align-self-center">
-                    <img src="./check.png" alt="" srcset="" width="25%">
+                    <img src="./assets/pictures/check.png" alt="" srcset="" width="25%">
                     <h1 class="display-4 font-weight-bold"> Ticket Generated</h1>
                     <h3 class="lead font-weight-normal">And Sent To Admin.....</h3>
                 </div>
@@ -194,10 +194,10 @@
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
 
-    <script src="./firebase.js"></script>
-    <script src="./loggedin.js"></script>
-    <script src="./index.js"></script>
-    <script src="./auth_out.js"></script>
+    <script src="./assets/js/firebase.js"></script>
+    <script src="./assets/js/loggedin.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/auth_out.js"></script>
     <script>
         AOS.init();
     </script>
@@ -233,7 +233,7 @@
     
 
     </script>
-    <script src="./serial.js"></script>
+    <script src="./assets/js/serial.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ArssGroup Weigh Bridge</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -32,8 +32,8 @@
     <section class="buttons my-2">
         <div class="container-fluid m-0">
             <div class="row w-100 m-0">
-                <div class="col-6 w-100">
-                    <span class="h6 text-warning">ARSS Group Connect</span>
+                <div class="col-6 w-100 pt-1">
+                    <span class="h6 text-warning  "><img src = "./assets/pictures/Icon.png" width="20px" class="mb-1" >  ARSS Group Connect</span>
                 </div>
                 <div class="col-6 text-right w-100">
                     <span class="pl-5">
@@ -51,9 +51,12 @@
         <div class="container d-flex h-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col align-self-center">
-                    <div class="Site_name_header h4 text-center text-warning font-weight-bold m-0"><i
-                            class="text-warning fas fa-user p-2 ml-5"></i>ADMIN PANEL
-                            <button class="btn float-right px-3 btn-warning border-danger" onclick="settings()"><i class="fas fa-cog"></i><b> Settings</b></button>
+                    <div class="Site_name_header h4 text-center text-warning font-weight-bold m-0 clearfix">
+                       <span class=" ml-5 pl-4">
+                        <i class="text-warning fas fa-user ml-5 mr-1 "></i>ADMIN PANEL
+                       </span> 
+                        <button class="btn float-right px-3 btn-warning border-danger" onclick="settings()"><i
+                                class="fas fa-cog"></i><b> Settings</b></button>
                     </div>
                 </div>
             </div>
@@ -66,18 +69,18 @@
                 <div class="col align-self-center">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-12">
-                            <img src="./business-and-finance.png" alt="" srcset="" width="25%">
+                            <img src="./assets/pictures/business-and-finance.png" alt="" srcset="" width="25%">
                         </div>
                         <div class="col-12">
                             <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2"
-                            onclick="updatePass();">Update Password</button>
+                                onclick="updatePass();">Update Password</button>
                         </div>
                         <div class="col-12">
                             <button class="lg-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2"
-                            onclick="authPass();">Update User Authentication Key</button>
+                                onclick="authPass();">Update User Authentication Key</button>
                         </div>
-                        <button id="close-btn" class="btn btn btn-transparent text-warning m-2 p-0"
-                            onclick="back()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Admin Panel</button>
+                        <button id="close-btn" class="btn btn btn-transparent text-warning m-2 p-0" onclick="back()"><i
+                                class="fas fa-arrow-circle-left p-1"></i>Back To Admin Panel</button>
                     </div>
                 </div>
             </div>
@@ -89,24 +92,25 @@
                 <div class="col align-self-center">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-12">
-                            <img src="./lock.png" alt="" srcset="" width="25%">
+                            <img src="./assets/pictures/lock.png" alt="" srcset="" width="25%">
                         </div>
                         <div class="col-12">
                             <p class="pass-error lead text-dark font-weight-bold mt-2 bg-warning text-center"></p>
-                                <input name="updatePass" type="text" class="form-control rounded w-50 mt-2 d-inline"
-                                                id="updatePass" placeholder="Enter New Password">
+                            <input name="updatePass" type="password" class="form-control rounded w-50 mt-2 d-inline"
+                                id="UpdatePass" placeholder="Enter New Password">
                         </div>
                         <div class="col-12">
-                            
-                                <input name="oldPass" type="text" class="form-control rounded w-50 mt-2 d-inline"
-                                                id="oldPass" placeholder="Enter Old Password">
+
+                            <input name="oldPass" type="password" class="form-control rounded w-50 mt-2 d-inline"
+                                id="oldPass" placeholder="Enter Old Password">
                         </div>
                         <div class="col-12">
                             <input type="submit"
-                            class="update-pass-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
+                                class="update-pass-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
                         </div>
                         <button id="close-btn" class="btn btn btn-transparent text-warning m-2 p-0"
-                            onclick="setBack()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Settings Menu</button>
+                            onclick="setBack()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Settings
+                            Menu</button>
                     </div>
                 </div>
             </div>
@@ -118,24 +122,25 @@
                 <div class="col align-self-center">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-12">
-                            <img src="./defense.png" alt="" srcset="" width="25%">
+                            <img src="./assets/pictures/defense.png" alt="" srcset="" width="25%">
                         </div>
                         <div class="col-12">
                             <p class="auth-error lead text-dark font-weight-bold mt-2 bg-warning text-center"></p>
-                                <input name="updatePass" type="text" class="form-control rounded w-50 mt-2 d-inline"
-                                                id="authUpdatePass" placeholder="Enter New Authentication Password">
+                            <input name="authpdatePass" type="password" class="form-control rounded w-50 mt-2 d-inline"
+                                id="authUpdatePass" placeholder="Enter New Authentication Password">
                         </div>
                         <div class="col-12">
-                            
-                                <input name="oldPass" type="text" class="form-control rounded w-50 mt-2 d-inline"
-                                                id="authOldPass" placeholder="Enter Old Authentication Password">
+
+                            <input name="autOldPass" type="password" class="form-control rounded w-50 mt-2 d-inline"
+                                id="authOldPass" placeholder="Enter Old Authentication Password">
                         </div>
                         <div class="col-12">
                             <input type="submit"
-                            class="update-auth-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
+                                class="update-auth-btn btn btn-lg btn-outline-warning btn-danger text-light mt-3 mx-2">
                         </div>
                         <button id="close-btn" class="btn btn btn-transparent text-warning m-2 p-0"
-                            onclick="setBack()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Settings Menu</button>
+                            onclick="setBack()"><i class="fas fa-arrow-circle-left p-1"></i>Back To Settings
+                            Menu</button>
                     </div>
                 </div>
             </div>
@@ -154,19 +159,24 @@
         <div class="container h-100 text-center">
             <div class="row justify-content-center align-items-center mt-4">
                 <div class="col-12 my-2 align-self-center justify-content-center row">
-                    <button class="btn px-4 mx-1 btn-warning border-danger" id="tableBack" onclick="back()"> <b> Back</b></button>
-                    <button class="btn px-4 mx-1 btn-warning border-danger d-none" id="searchBack" onclick="SearchBack()"> <b> Back</b></button>
-                    
-                    <button class="bg-dark mx-1  btn text-white border-warning" onclick="downloadPage()">Download Slips</button>
+                    <button class="btn px-4 mx-1 btn-warning border-danger" id="tableBack" onclick="back()"> <b>
+                            Back</b></button>
+                    <button class="btn px-4 mx-1 btn-warning border-danger d-none" id="searchBack"
+                        onclick="SearchBack()"> <b> Back</b></button>
+
+                    <button class="bg-dark mx-1  btn text-white border-warning" onclick="downloadPage()">Download
+                        Slips</button>
                     <form id="search-ticket" class="mx-1">
                         <div class="p-1 bg-light rounded rounded-pill shadow-sm ">
                             <div class="input-group">
-                              <div class="input-group-prepend">
-                                <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i class="fa fa-search"></i></button>
-                              </div>
-                              <input type="search" placeholder="Ticket No" aria-describedby="button-addon2" class="form-control border-0 bg-light" name="searchTicket" >
+                                <div class="input-group-prepend">
+                                    <button id="button-addon2" type="submit" class="btn btn-link text-warning"><i
+                                            class="fa fa-search"></i></button>
+                                </div>
+                                <input type="search" placeholder="Ticket No" aria-describedby="button-addon2"
+                                    class="form-control border-0 bg-light" name="searchTicket">
                             </div>
-                          </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -275,9 +285,9 @@
         <div class="container d-flex h-100 text-center">
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col align-self-center">
-                    <img src="./check.png" alt="" srcset="" width="25%">
+                    <img src="./assets/pictures/check.png" alt="" srcset="" width="25%">
                     <h1 class="display-4 font-weight-bold"> Successfully Updated!</h1>
-                    
+
                 </div>
             </div>
         </div>
@@ -305,10 +315,10 @@
 <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
-<script src="./firebase.js"></script>
-<script src="./auth_out.js"></script>
-<script src="./auth.js"></script>
-<script src="./adminIndex.js"></script>
-<script src="./serial.js"></script>
+<script src="./assets/js/firebase.js"></script>
+<script src="./assets/js/auth_out.js"></script>
+<script src="./assets/js/auth.js"></script>
+<script src="./assets/js/adminIndex.js"></script>
+<script src="./assets/js/serial.js"></script>
 
 </html>

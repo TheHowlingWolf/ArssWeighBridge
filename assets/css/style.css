@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Prata&display=swap');
+body{
+    background: #111113 !important;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Prata', serif;
+    color:white !important;
+}
+
+.intro{
+    height: 90vh;
+}
+.login{
+    height: 90vh;
+}
+.Register{
+    height: 90vh;
+}
+.con-reg{
+    height: 90vh;
+}
+.con-log{
+    height: 90vh;
+}
+.components{
+    height: 625px;
+}
+.lg-btn{
+    border: 2px solid black;
+}
+
+.home-nav{
+    border-bottom: 2px solid #ffc107;
+}
+.home-nav-dark{
+    border-bottom: 2px solid #ffc107 !important;
+}
+a:hover{
+    text-decoration: none !important;
+}
+.user-com{
+    border:2px solid ;
+    border-radius: 5px;
+}
+
+.components{
+    border-top:2px solid ;
+    border-bottom:2px solid ;
+    border-left:2px solid; 
+    border-radius: 50px 800px 800px 50px;
+    background: #ffc107;
+    background-position: center;
+    
+}
+.slip{
+    height: 625px;
+    background: #ffc107;
+    background-position: center;
+    background-size: 30px 10px;
+    border-top:2px solid #ffc107;
+    border-bottom:2px solid #ffc107;
+    border-right:2px solid #ffc107; 
+    border-radius: 900px 900px 0px 0px;
+}
+.slip-head{
+    border-top:2px solid #ffc107;
+    border-bottom:2px solid #ffc107;
+    border-left:2px solid #ffc107; 
+    border-radius: 0px 900px 00px 0px;
+}
+.details-site{
+    height: 645px;
+}
+.scrollable{
+    height: 645px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.scrollable-form{
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ffc107; 
+    border-radius: 10px;
+  }
+
+  .tick-reg{
+      height: 645px;
+  }
+
+  .settings-menu{
+    height: 645px;
+}
+
+.settings-menu-updatepass{
+    height: 645px;
+}
+
+.settings-menu-updateauth{
+    height: 645px;
+}
