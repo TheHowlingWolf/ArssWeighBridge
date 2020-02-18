@@ -1,6 +1,6 @@
 const SerialPort = require("serialport");
 const Readline = require("@serialport/parser-readline");
-const portName = "COM3";
+const portName = "COM12";
 const http = require("http");
 const nodemailer = require("nodemailer");
 const { remote } = require("electron");
@@ -148,7 +148,7 @@ async function grossFetch() {
 
 
       }, 2000);
-
+  let count=0;
       db.collection("ticketsCount")
         .doc("8Wb4NtiBXO8coiKwRTW7")
         .update({ NoOfTickets: ticketNo });
