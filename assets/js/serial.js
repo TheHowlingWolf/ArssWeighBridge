@@ -1,23 +1,43 @@
 const SerialPort = require("serialport");
-const Readline = require("@serialport/parser-readline");
-const portName = "COM12";
+const byteLength= require("@serialport/parser-readline");
+const portName = "COM1";
 const http = require("http");
 const nodemailer = require("nodemailer");
+
 const { remote } = require("electron");
-var win = remote.BrowserWindow.getFocusedWindow();
+
+
+const w = remote.BrowserWindow.getFocusedWindow();
+
+// const w =  remote.getCurrentWindow();
+
+
 
 function winclose() {
-  win.close();
+  
+  if(w){
+
+    w.close();
+  }
+  
+  
 }
+
 function winmin() {
-  win.minimize();
+  w.minimize();
 }
+
+
 
 const port = new SerialPort(portName, {
-  baudRate: 9600
-});
+  baudRate: 2400,
+  dataBits:7,
+  stopBits:1,
+parity:"none",
 
-const parser = new Readline("\r\n");
+}).setEncoding('utf8');
+
+const parser =new byteLength("W\n");
 port.pipe(parser);
 var x;
 var y;
@@ -28,12 +48,18 @@ var dryTime, loadedTime, grossTime;
 
 port.on("open", line => console.log("Open Connection"));
 
-parser.on("data", line => (temp = line));
+parser.on("data", line => {temp= Number(line.substring(1,8)) ; console.log(line); });
+
+
+
 function dryFetch() {
   dryTime = new Date().toString();
   document.querySelector(".df-btn").classList.add("d-none");
   document.querySelector(".df-val").classList.remove("d-none");
   x = Number(temp);
+  console.log(temp);
+  
+  
   document.querySelector(
     ".df-val"
   ).innerHTML = `${x} Kgs<p class="h6 font-weight-normal text-muted">Time:${dryTime}</p>`;

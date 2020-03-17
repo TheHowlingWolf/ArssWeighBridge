@@ -8,8 +8,8 @@ let win;
 
 function createWindow() {
     win = new BrowserWindow({
-        height:800,
-        width:1000,
+        height:768,
+        width:1024,
         icon:'./Icon.png',
         resizable:false,
         darkTheme:true,
@@ -17,7 +17,6 @@ function createWindow() {
         frame:false,
         webPreferences: {
             nodeIntegration: true,
-            devTools:false
         }
     });
     win.show();
@@ -32,7 +31,7 @@ function createWindow() {
         win = null;
     });
 
-    win.webContents.on("devtools-opened", () => { win.webContents.closeDevTools(); });
+    
 
 }
 

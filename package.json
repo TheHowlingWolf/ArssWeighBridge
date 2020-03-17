@@ -5,9 +5,9 @@
   "main": "bootstrap.js",
   "scripts": {
     "start": "electron .",
-    "check": "electron-rebuild",
-    "package":"asar pack ARSSConnect-win32-x64/resources/app ARSSConnect-win32-x64/resources/app.asar ",
-    "build": "electron-packager . ARSSConnect  --ignore=node_modules/electron-*"
+    "check": "electron-rebuild --arch=ia32 --overwrite=force",
+    "package": "asar pack ARSSConnect-win32-ia32/resources/app ARSSConnect-win32-ia32/resources/app.asar   ",
+    "build": "electron-packager . ARSSConnect --arch=ia32  --ignore=node_modules/electron-*"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,8 @@
   "devDependencies": {
     "electron": "^7.1.7",
     "electron-packager": "^14.2.0",
-    "electron-rebuild": "^1.8.8"
+    "electron-rebuild": "^1.8.8",
+    "electron-wix-msi": "^2.2.0"
   },
   "dependencies": {
     "asar": "^2.0.3",
