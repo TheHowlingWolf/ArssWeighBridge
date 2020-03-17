@@ -14,13 +14,7 @@ const w = remote.BrowserWindow.getFocusedWindow();
 
 
 function winclose() {
-  
-  if(w){
-
     w.close();
-  }
-  
-  
 }
 
 function winmin() {
